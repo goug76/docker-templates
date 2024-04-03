@@ -7,8 +7,8 @@ services:
       - 53:53/udp
       - 784:784/udp # DNS over QUIC
       - 853:853/tcp # DNS over TLS
-      - 3002:3000/tcp # initial installation
-      - 8080:80/tcp # Dashboard
+      - 3000:3000/tcp # initial installation
+      - 80:80/tcp # Dashboard
       - 4443:443/tcp # DNS over HTTPs
     volumes:
       - $DOCKERDIR/appdata/adguardhome/work:/opt/adguardhome/work
