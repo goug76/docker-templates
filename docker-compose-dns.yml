@@ -16,3 +16,6 @@ include:
 
   # DNS Resolver
   - compose/$HOSTNAME/unbound.yml
+
+  # DDNS 
+  - compose/$HOSTNAME/cloudflare-ddns.yml
