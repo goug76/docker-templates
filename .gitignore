@@ -1,0 +1,10 @@
+# Common
+.vscode/
+
+# Security
+*.env
+
+# Folder Stucture
+appdata/
+logs/
+secrets/

@@ -1,0 +1,18 @@
+networks:
+  rpi4b:
+    name: rpi4b
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.101.0/24
+  default:
+    driver: bridge
+
+include:
+  # PREFIX dns = DNS / AdBlock Server
+
+  # Adblocking
+  - compose/$HOSTNAME/adguardhome.yml
+
+  # DNS Resolver
+  - compose/$HOSTNAME/unbound.yml
