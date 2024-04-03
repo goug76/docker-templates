@@ -1,5 +1,6 @@
 networks:
   rpi4b-network:
+    name: rpi4b-network
     driver: bridge
     ipam:
       config:
