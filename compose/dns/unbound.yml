@@ -1,13 +1,8 @@
 services:
   unbound:
     container_name: unbound
-    image: mvance/unbound-rpi:latest
-    ports:
-      - 5053:53/tcp # DNS
-      - 5053:53/udp
-    volumes:
-    - $DOCKERDIR/appdata/unbound:/opt/unbound/etc/unbound
     restart: unless-stopped
+    image: klutchell/unbound
     networks:
       rpi4b-network:
         ipv4_address: 172.20.0.53 # fixed IP address
