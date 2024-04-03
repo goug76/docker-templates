@@ -15,4 +15,4 @@ services:
       - $DOCKERDIR/appdata/adguardhome/conf:/opt/adguardhome/conf
     restart: unless-stopped
     networks:
-      - rpi4b
+      - rpi4b-network

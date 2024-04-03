@@ -2,8 +2,11 @@ services:
   unbound:
     container_name: unbound
     image: mvance/unbound-rpi:latest
+    ports:
+      - 5353:53/tcp # DNS
+      - 5353:53/udp
     volumes:
     - $DOCKERDIR/appdata/unbound:/opt/unbound/etc/unbound
     restart: unless-stopped
     networks:
-      - rpi4b
+      - rpi4b-network
