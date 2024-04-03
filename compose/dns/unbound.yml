@@ -9,4 +9,5 @@ services:
     - $DOCKERDIR/appdata/unbound:/opt/unbound/etc/unbound
     restart: unless-stopped
     networks:
-      - rpi4b-network
+      rpi4b-network:
+        ipv4_address: 172.20.0.53 # fixed IP address
