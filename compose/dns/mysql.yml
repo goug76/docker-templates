@@ -12,10 +12,8 @@ services:
     volumes:
       - $DOCKERDIR/appdata/mysql:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: /run/secrets/mysql_pwd
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PWD}
       TZ: '${TZ}'
-    secrets:
-      - mysql_pwd
     networks:
       mysql-network:
         ipv4_address: 172.21.0.10 # fixed IP address

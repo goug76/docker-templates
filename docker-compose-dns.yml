@@ -12,10 +12,6 @@ networks:
       config:
         - subnet: 172.21.0.0/24
 
-secrets:
-  mysql_pwd:
-    file: $DOCKERDIR/secrets/mysql_pwd
-
 include:
   # PREFIX dns = DNS / AdBlock Server
 
