@@ -19,4 +19,5 @@ services:
     secrets:
       - mysql_pwd
     networks:
-      - mysql-network
+      mysql-network:
+        ipv4_address: 172.2.0.10 # fixed IP address
