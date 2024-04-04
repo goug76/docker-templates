@@ -16,4 +16,4 @@ services:
     secrets:
       - mysql_pwd
     networks:
-      - mysql-network
+      - rpi4b-network
