@@ -20,4 +20,4 @@ services:
       - mysql_pwd
     networks:
       mysql-network:
-        ipv4_address: 172.20.0.10 # fixed IP address
+        ipv4_address: 172.21.0.10 # fixed IP address
