@@ -1,5 +1,3 @@
-version: '3.9'
-
 networks:
   rpi4b-network:
     name: rpi4b-network
