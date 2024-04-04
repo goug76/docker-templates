@@ -6,10 +6,13 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 172.21.0.0/24
+        - subnet: 172.20.0.0/24
   mysql-network:
     driver: bridge
     name: mysql-network
+    ipam:
+      config:
+        - subnet: 172.21.0.0/24
 
 secrets:
   mysql_pwd:
