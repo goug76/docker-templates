@@ -12,7 +12,10 @@ services:
     volumes:
       - $DOCKERDIR/appdata/mysql:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_PWD}
+      MYSQL_DATABASE: semphore
+      MYSQL_USER: '${USER}'
+      MYSQL_PASSWORD: '${MYSQL_PWD}'
+      MYSQL_ROOT_PASSWORD: '${MYSQL_PWD}'
       TZ: '${TZ}'
     networks:
       mysql-network:
