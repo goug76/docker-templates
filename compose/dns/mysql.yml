@@ -13,7 +13,7 @@ services:
       - $DOCKERDIR/appdata/mysql:/var/lib/mysql
     environment:
       MYSQL_DATABASE: semphore
-      MYSQL_USER: '${USER}'
+      MYSQL_USER: goug76
       MYSQL_PASSWORD: '${MYSQL_PWD}'
       MYSQL_ROOT_PASSWORD: '${MYSQL_PWD}'
       TZ: '${TZ}'
