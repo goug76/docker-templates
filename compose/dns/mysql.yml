@@ -12,8 +12,6 @@ services:
     volumes:
       - $DOCKERDIR/appdata/mysql:/var/lib/mysql
     environment:
-      MYSQL_USER: '${USER}'
-      MYSQL_PASSWORD: /run/secrets/mysql_pwd
       MYSQL_ROOT_PASSWORD: /run/secrets/mysql_pwd
       TZ: '${TZ}'
     secrets:
