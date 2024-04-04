@@ -3,6 +3,8 @@ services:
     container_name: mysql
     restart: unless-stopped
     image: mysql
+    security_opt:
+      - no-new-privileges:true
     hostname: mysql
     ports:
       - 3306:3306

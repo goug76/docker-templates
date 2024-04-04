@@ -2,6 +2,8 @@ services:
   phpmyadmin:
     container_name: phpmyadmin
     image: arm64v8/phpmyadmin
+    security_opt:
+      - no-new-privileges:true
     restart: unless-stopped
     ports:
       - 8080:80
