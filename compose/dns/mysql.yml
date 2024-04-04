@@ -5,6 +5,8 @@ services:
     image: mysql
     security_opt:
       - no-new-privileges:true
+    command: --sql_mode=
+    command: --pid-file /var/lib/mysql/mysqld.pid
     hostname: mysql
     ports:
       - 3306:3306
