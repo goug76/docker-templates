@@ -1,9 +1,6 @@
 # Common
 .vscode/
 
-# Security
-*.env
-
 # Block Folder Stucture
 logs/
 secrets/
@@ -13,3 +10,6 @@ secrets/
 appdata/cloudflare-ddns/config.json
 
 appdata/adguard/
+
+# Security
+.env

@@ -1,0 +1,29 @@
+services:
+  semaphore:
+    container_name: semaphore
+    restart: unless-stopped
+    ports:
+      - 3001:3000
+    image: semaphoreui/semaphore:latest
+    environment:
+      SEMAPHORE_DB_USER: ${USER}
+      SEMAPHORE_DB_PASS: '${SEMAPHORE_DB_PASS}'
+      SEMAPHORE_DB_HOST: mysql # for postgres, change to: postgres
+      SEMAPHORE_DB_PORT: 3306 # change to 5432 for postgres
+      SEMAPHORE_DB_DIALECT: mysql # for postgres, change to: postgres
+      SEMAPHORE_DB: semaphore
+      SEMAPHORE_PLAYBOOK_PATH: /tmp/semaphore/
+      SEMAPHORE_ADMIN_PASSWORD: '${SEMAPHORE_ADMIN_PASSWORD}'
+      SEMAPHORE_ADMIN_NAME: John Goughenour
+      SEMAPHORE_ADMIN_EMAIL: ${EMAIL}
+      SEMAPHORE_ADMIN: ${USER}
+      SEMAPHORE_ACCESS_KEY_ENCRYPTION: '${SEMAPHORE_ACCESS_KEY_ENCRYPTION}'
+      ANSIBLE_HOST_KEY_CHECKING: false
+      ANSIBLE_PYTHON_INTERPRETER: auto_silent
+      TZ: America/New_York
+    volumes:
+      - $DOCKERDIR/appdata/semaphore/inventory/:/inventory
+      - $DOCKERDIR/appdata/semaphore/authorized-keys/:/authorized-keys
+      # - $DOCKERDIR/appdata/semaphore/config/:/etc/semaphore
+    networks:
+      - mysql-network
