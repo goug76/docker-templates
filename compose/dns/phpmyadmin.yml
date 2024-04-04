@@ -8,3 +8,5 @@ services:
     environment:
       PMA_ARBITRARY: 1
       TZ: '${TZ}'
+    networks:
+      - rpi4b-network
