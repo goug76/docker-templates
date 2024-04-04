@@ -11,4 +11,4 @@ services:
       PMA_ARBITRARY: 1
       TZ: '${TZ}'
     networks:
-      - rpi4b-network
+      - mysql-network

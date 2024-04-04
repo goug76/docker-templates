@@ -19,5 +19,4 @@ services:
     secrets:
       - mysql_pwd
     networks:
-      rpi4b-network:
-        ipv4_address: 172.20.0.5 # fixed IP address
+      - mysql-network
