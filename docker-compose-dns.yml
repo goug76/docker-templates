@@ -6,6 +6,10 @@ networks:
       config:
         - subnet: 172.20.0.0/24
 
+secrets:
+  mysql_pwd:
+    file: $DOCKERDIR/secrets/mysql_pwd
+
 include:
   # PREFIX dns = DNS / AdBlock Server
 
@@ -17,3 +21,7 @@ include:
 
   # DDNS 
   - compose/$HOSTNAME/cloudflare-ddns.yml
+
+  # Database
+  - compose/$HOSTNAME/mysql.yml
+  - compose/$HOSTNAME/phpmyadmin.yml

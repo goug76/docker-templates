@@ -1,0 +1,19 @@
+services:
+  mysql:
+    container_name: mysql
+    restart: unless-stopped
+    image: mysql
+    hostname: mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - $DOCKERDIR/appdata/mysql:/var/lib/mysql
+    environment:
+      MYSQL_USER: '${USER}'
+      MYSQL_PASSWORD: /run/secrets/mysql_pwd
+      MYSQL_ROOT_PASSWORD: /run/secrets/mysql_pwd
+      TZ: '${TZ}'
+    secrets:
+      - mysql_pwd
+    networks:
+      - mysql-network

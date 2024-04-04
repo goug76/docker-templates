@@ -4,7 +4,12 @@
 # Security
 *.env
 
-# Folder Stucture
-appdata/
+# Block Folder Stucture
 logs/
 secrets/
+
+# Allow Certain Folder Structure
+!appdata/cloudflare-ddns/*
+appdata/cloudflare-ddns/config.json
+
+appdata/adguard/
