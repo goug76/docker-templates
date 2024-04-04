@@ -27,3 +27,6 @@ include:
   # Database
   - compose/$HOSTNAME/mysql.yml
   - compose/$HOSTNAME/phpmyadmin.yml
+
+  # Ansible  
+  - compose/$HOSTNAME/semaphore.yml
