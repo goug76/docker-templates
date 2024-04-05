@@ -16,7 +16,7 @@ services:
       - .dns.env
     environment:
       MYSQL_DATABASE: semaphore
-      MYSQL_USER: goug76
+      MYSQL_USER: ${USER}
       MYSQL_PASSWORD: '${MYSQL_PWD}'
       MYSQL_ROOT_PASSWORD: '${MYSQL_PWD}'
       TZ: '${TZ}'
