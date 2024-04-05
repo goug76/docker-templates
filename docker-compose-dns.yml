@@ -22,17 +22,17 @@ include:
   # PREFIX dns = DNS / AdBlock Server
 
   # Adblocking
-  - compose/$HOSTNAME/adguardhome.yml
+  - compose/dns/adguardhome.yml
 
   # DNS Resolver
-  - compose/$HOSTNAME/unbound.yml
+  - compose/dns/unbound.yml
 
   # DDNS 
-  - compose/$HOSTNAME/cloudflare-ddns.yml
+  - compose/dns/cloudflare-ddns.yml
 
   # Database
-  - compose/$HOSTNAME/mysql.yml
-  - compose/$HOSTNAME/phpmyadmin.yml
+  - compose/dns/mysql.yml
+  - compose/dns/phpmyadmin.yml
 
   # Ansible  
-  - compose/$HOSTNAME/semaphore.yml
+  - compose/dns/semaphore.yml
