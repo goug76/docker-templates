@@ -24,6 +24,6 @@ services:
     volumes:
       - $DOCKERDIR/appdata/semaphore/inventory/:/inventory
       - $DOCKERDIR/appdata/semaphore/authorized-keys/:/authorized-keys
-      # - $DOCKERDIR/appdata/semaphore/config/:/etc/semaphore
+      - $DOCKERDIR/appdata/semaphore/config/:/etc/semaphore
     networks:
       - mysql-network
