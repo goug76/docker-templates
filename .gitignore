@@ -10,6 +10,7 @@ secrets/
 appdata/cloudflare-ddns/config.json
 
 appdata/adguard/
+appdata/mysql/
 
 # Security
 *.env
