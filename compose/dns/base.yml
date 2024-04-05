@@ -1,5 +1,0 @@
-services:
-  base:
-    env_file:
-      - /home/goug76/docker/.env
-      - /home/goug76/docker/.dns.env

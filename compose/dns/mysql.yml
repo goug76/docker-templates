@@ -1,8 +1,5 @@
 services:
   mysql:
-    extends:
-      file: $DOCKERDIR/compose/dns/base.yml
-      service: base
     container_name: mysql
     restart: unless-stopped
     image: mysql
@@ -14,6 +11,9 @@ services:
       - 3306:3306
     volumes:
       - $DOCKERDIR/appdata/mysql:/var/lib/mysql
+    env_file:
+      - /home/goug76/docker/.env
+      - /home/goug76/docker/.dns.env
     environment:
       MYSQL_DATABASE: semaphore
       MYSQL_USER: ${USER}
