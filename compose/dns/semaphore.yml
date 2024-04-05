@@ -20,6 +20,6 @@ services:
       SEMAPHORE_ACCESS_KEY_ENCRYPTION: '${SEMAPHORE_ACCESS_KEY_ENCRYPTION}'
       ANSIBLE_HOST_KEY_CHECKING: false
       ANSIBLE_PYTHON_INTERPRETER: auto_silent
-      TZ: America/New_York
+      TZ: ${TZ}
     networks:
       - mysql-network
