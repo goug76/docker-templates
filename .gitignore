@@ -12,4 +12,4 @@ appdata/cloudflare-ddns/config.json
 appdata/adguard/
 
 # Security
-.env
+*.env
