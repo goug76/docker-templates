@@ -12,14 +12,11 @@ networks:
       config:
         - subnet: 172.21.0.0/24
 
-services:
-  base:
-    env_file:
-      - /home/goug76/docker/.env
-      - /home/goug76/docker/.dns.env
-
 include:
   # PREFIX dns = DNS / AdBlock Server
+
+  # Base Container
+  - compose/dns/base.yml
 
   # Adblocking
   - compose/dns/adguardhome.yml
