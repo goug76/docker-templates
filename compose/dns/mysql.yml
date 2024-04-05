@@ -1,6 +1,7 @@
 services:
   mysql:
     extends:
+      file: $DOCKERDIR/compose/dns/base.yml
       service: base
     container_name: mysql
     restart: unless-stopped
