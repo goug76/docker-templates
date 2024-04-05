@@ -5,9 +5,11 @@ services:
     security_opt:
       - no-new-privileges:true
     network_mode: "host"
+    env_file:
+      - .env
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=${PUID}
+      - PGID=${PGID}
     volumes:
       - $DOCKERDIR/appdata/cloudflare-ddns/config.json:/config.json
     restart: unless-stopped
