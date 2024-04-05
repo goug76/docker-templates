@@ -13,5 +13,5 @@ sudo setfacl -Rdm g:docker:rwx /home/goug76/docker
 sudo setfacl -Rm g:docker:rwx /home/goug76/docker
 
 # Set up GIT
-git config --global user.email "goug764@gmail.com"
+git config --global user.email "goug76@gmail.com"
 git config --global user.name "John Goughenour"
