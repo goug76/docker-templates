@@ -12,27 +12,21 @@ networks:
       config:
         - subnet: 172.21.0.0/24
 
-services:
-  base:
-    env_file:
-      - .env
-      - .dns.env
-
 include:
   # PREFIX dns = DNS / AdBlock Server
 
   # Adblocking
-  - compose/dns/adguardhome.yml
+  - compose/$HOSTNAME/adguardhome.yml
 
   # DNS Resolver
-  - compose/dns/unbound.yml
+  - compose/$HOSTNAME/unbound.yml
 
   # DDNS 
-  - compose/dns/cloudflare-ddns.yml
+  - compose/$HOSTNAME/cloudflare-ddns.yml
 
   # Database
-  - compose/dns/mysql.yml
-  - compose/dns/phpmyadmin.yml
+  - compose/$HOSTNAME/mysql.yml
+  - compose/$HOSTNAME/phpmyadmin.yml
 
   # Ansible  
-  - compose/dns/semaphore.yml
+  - compose/$HOSTNAME/semaphore.yml
