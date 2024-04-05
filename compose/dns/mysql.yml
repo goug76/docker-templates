@@ -12,8 +12,8 @@ services:
     volumes:
       - $DOCKERDIR/appdata/mysql:/var/lib/mysql
     env_file:
-      - $DOCKERDIR/.env
-      - $DOCKERDIR/.dns.env
+      - .env
+      - .dns.env
     environment:
       MYSQL_DATABASE: semaphore
       MYSQL_USER: ${USER}
