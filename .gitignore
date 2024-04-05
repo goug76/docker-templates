@@ -9,7 +9,7 @@ secrets/
 !appdata/cloudflare-ddns/*
 appdata/cloudflare-ddns/config.json
 
-appdata/adguard/
+appdata/adguardhome/
 appdata/mysql/
 
 # Security
