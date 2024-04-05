@@ -15,9 +15,6 @@ networks:
 include:
   # PREFIX dns = DNS / AdBlock Server
 
-  # Base Container
-  - compose/dns/base.yml
-
   # Adblocking
   - compose/dns/adguardhome.yml
 
