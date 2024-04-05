@@ -1,7 +1,6 @@
 services:
   semaphore:
     extends:
-      file: ./base.yml
       service: base
     container_name: semaphore
     restart: unless-stopped
