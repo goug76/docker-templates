@@ -1,6 +1,7 @@
 services:
   mysql:
     extends:
+      file: base.yml
       service: base
     container_name: mysql
     restart: unless-stopped
