@@ -1,0 +1,16 @@
+networks:
+  default:
+    driver: bridge
+  socket_proxy:
+    name: socket_proxy
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.22.0.0/24
+
+include:
+  # PREFIX prod = Production Docker Server
+
+  # CORE
+  - compose/prod/socket-proxy.yml
+  - compose/prod/portainer.yml
