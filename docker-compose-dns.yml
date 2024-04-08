@@ -16,7 +16,7 @@ include:
   # PREFIX dns = DNS / AdBlock Server
 
   # Portainer Agent
-  - compose/dns/portainer-agent.yml
+  - compose/portainer-agent.yml
 
   # Adblocking
   - compose/dns/adguardhome.yml
