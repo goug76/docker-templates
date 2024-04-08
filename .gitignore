@@ -11,6 +11,7 @@ appdata/cloudflare-ddns/config.json
 
 appdata/adguardhome/
 appdata/mysql/
+appdata/portainer
 
 # Security
 *.env
