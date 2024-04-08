@@ -12,5 +12,5 @@ include:
   # PREFIX prod = Production Docker Server
 
   # CORE
-  - compose/prod/socket-proxy.yml
+  - compose/socket-proxy.yml
   - compose/prod/portainer.yml
