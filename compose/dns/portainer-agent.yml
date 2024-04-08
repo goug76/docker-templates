@@ -6,15 +6,14 @@ services:
     security_opt:
       - no-new-privileges:true
     restart: unless-stopped
-    # profiles: ["core", "all"]
-    networks:
-      - socket_proxy
+    # networks:
+    #   - socket_proxy
     # command: -H unix:///var/run/docker.sock # # Use Docker Socket Proxy instead for improved security
-    command: -H tcp://socket-proxy:2375
+    # command: -H tcp://socket-proxy:2375
     ports:
       - "9001:9001"
     volumes:
-      # - /var/run/docker.sock:/var/run/docker.sock:ro # # Use Docker Socket Proxy instead for improved security
+      - /var/run/docker.sock:/var/run/docker.sock:ro # # Use Docker Socket Proxy instead for improved security
       - /var/lib/docker/volumes:/var/lib/docker/volumes
     environment:
       - TZ=$TZ

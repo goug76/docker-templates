@@ -1,10 +1,4 @@
 networks:
-  socket_proxy:
-    name: socket_proxy
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.22.0.0/24
   rpi4b-network:
     name: rpi4b-network
     driver: bridge
@@ -21,8 +15,7 @@ networks:
 include:
   # PREFIX dns = DNS / AdBlock Server
 
-  # CORE
-  - compose/socket-proxy.yml
+  # Portainer Agent
   - compose/dns/portainer-agent.yml
 
   # Adblocking
