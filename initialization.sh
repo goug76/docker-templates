@@ -3,6 +3,9 @@
 # Change PWD to the docker directory
 cd /home/goug76/docker/
 
+# Create .env file
+sudo mv .env.example .env
+
 # Set permissions to the .env file to 600
 sudo chown root:root /home/goug76/docker/.env
 sudo chmod 600 /home/goug76/docker/.env
