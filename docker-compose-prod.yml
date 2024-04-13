@@ -4,15 +4,9 @@ networks:
   socket_proxy:
     name: socket_proxy
     driver: bridge
-    ipam:
-      config:
-        - subnet: 172.22.0.0/24
   traefik:
     name: traefik
     driver: bridge
-    ipam:
-      config:
-        - subnet: 172.23.0.0/24
 
 include:
   # PREFIX prod = Production Docker Server
