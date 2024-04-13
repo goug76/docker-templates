@@ -2,12 +2,15 @@
 .vscode/
 
 # Block Folder Stucture
-logs/
+!logs/
 secrets/
 
 # Allow Certain Folder Structure
 !appdata/cloudflare-ddns/*
 appdata/cloudflare-ddns/config.json
+
+!appdata/traefik/*
+appdata/traefik/acme/acme.json
 
 appdata/adguardhome/
 appdata/mysql/

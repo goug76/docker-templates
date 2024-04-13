@@ -7,12 +7,19 @@ networks:
     ipam:
       config:
         - subnet: 172.22.0.0/24
+  traefik:
+    name: traefik
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.23.0.0/24
 
 include:
   # PREFIX prod = Production Docker Server
 
   # CORE
   - compose/socket-proxy.yml
+  - compose/prod/traefik.yml
   - compose/prod/portainer.yml
 
   # Dashboard  
