@@ -1,6 +1,6 @@
 services:
   traefik:
-    image: traefik:traefik:v3.0
+    image: traefik:v3.0
     container_name: traefik
     restart: unless-stopped
     security_opt:
@@ -66,7 +66,7 @@ services:
       - $DOCKERDIR/logs/traefik/logs:/logs
     environment:
       - TZ=$TZ
-      - CF_API_EMAIL='${CF_API_EMAIL}'
+      - CF_API_EMAIL='${EMAIL}'
       - CF_DNS_API_TOKEN='${CF_DNS_API_TOKEN}'
       - TRAEFIK_USERS=$TRAEFIK_USERS
       - DOMAINNAME_1
