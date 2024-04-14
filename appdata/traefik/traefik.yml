@@ -4,6 +4,7 @@ global:
 api:
   dashboard: true
   debug: true
+  # insecure: true
 
 entryPoints:
   web:
@@ -11,7 +12,7 @@ entryPoints:
     http:
       redirections:
         entryPoint:
-          to: https
+          to: websecure
           scheme: https
           permanent: true
   websecure:
@@ -37,17 +38,11 @@ entryPoints:
         - "104.24.0.0/14"
         - "172.64.0.0/13"
         - "131.0.72.0/22"
-      http:
-        tls:
-          options: tls-opts@file
-          certresolver: dns-cloudflare
-          domains:
-            - main: goug.info
-              sans: *.goug.info
-            - main: thisoldsmarthome.com
-              sans: *.thisoldsmarthome.com
   traefik:
     address: ":8080"
+
+# serversTransport:
+#   insecureSkipVerify: true
 
 providers:
   docker:
@@ -59,7 +54,7 @@ providers:
     watch: true
 
 log:
-  level: DEBUG
+  level: DEBUG # Alternative logging levels are DEBUG, INFO, WARN, ERROR, FATAL, and PANIC
   filePath: /logs/traefik.log
 
 accessLog:
@@ -75,11 +70,11 @@ certificatesResolvers:
   cloudflare:
     acme:
       email: goug76@gmail.com #add your email
-      caServer: https://acme-staging-v02.api.letsencrypt.org/directory # Comment out after testing
+      # caServer: https://acme-staging-v02.api.letsencrypt.org/directory # Comment out after testing
       storage: acme.json
       dnsChallenge:
         provider: cloudflare
-        # disablePropagationCheck: true # uncomment this if you have issues pulling certificates through cloudflare, By setting this flag to true disables the need to wait for the propagation of the TXT record to all authoritative name servers.
+        #disablePropagationCheck: true # uncomment this if you have issues pulling certificates through cloudflare, By setting this flag to true disables the need to wait for the propagation of the TXT record to all authoritative name servers.
         resolvers:
           - "1.1.1.1:53"
           - "1.0.0.1:53"

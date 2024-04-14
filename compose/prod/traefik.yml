@@ -12,13 +12,14 @@ services:
       - 80:80
       - 443:443
     volumes:
+      # - /var/run/docker.sock:/var/run/docker.sock:ro
       - $DOCKERDIR/appdata/traefik/rules:/rules
       - $DOCKERDIR/appdata/traefik/acme/acme.json:/acme.json
       - $DOCKERDIR/logs/traefik:/logs
       - $DOCKERDIR/appdata/traefik/traefik.yml:/traefik.yml:ro
     environment:
       - TZ=$TZ
-      - CF_API_EMAIL='${EMAIL}'
+      # - CF_API_EMAIL='${EMAIL}'
       - CF_DNS_API_TOKEN='${CF_DNS_API_TOKEN}'
       - TRAEFIK_USERS=$TRAEFIK_USERS
       - DOMAINNAME_1
@@ -26,9 +27,15 @@ services:
     labels:
       - "traefik.enable=true"
       # HTTP Routers
-      - "traefik.http.routers.traefik-rtr.entrypoints=websecure"
-      - "traefik.http.routers.traefik-rtr.rule=Host(`traefik.$DOMAINNAME_1`)"
+      - "traefik.http.routers.dashboard.entrypoints=websecure"
+      - "traefik.http.routers.dashboard.tls=true"
+      - "traefik.http.routers.dashboard.rule=Host(`traefik.$DOMAINNAME_1`)"
+      - "traefik.http.routers.dashboard.middlewares=auth"
       # Services - API
-      - "traefik.http.routers.traefik-rtr.service=api@internal"
+      - "traefik.http.routers.dashboard.service=api@internal"
+      # Get Certificates
+      - "traefik.http.routers.dashboard.tls.certresolver=cloudflare"
+      - "traefik.http.routers.dashboard.tls.domains[0].main=goug.info"
+      - "traefik.http.routers.dashboard.tls.domains[0].sans=*.goug.info"   
       # Middlewares
-      - "traefik.http.routers.traefik-rtr.middlewares=middlewares-basic-auth@file" # For Basic HTTP Authentication
+      - "traefik.http.middlewares.auth.basicauth.users=$TRAEFIK_USERS"
