@@ -1,20 +1,15 @@
 networks:
   default:
     driver: bridge
-  socket_proxy:
-    name: socket_proxy
-    driver: bridge
-  traefik:
-    name: traefik
-    driver: bridge
 
 include:
   # PREFIX prod = Production Docker Server
+  # Deploy: docker compose -f /home/goug76/docker/docker-compose-prod.yml up -d
+  # Remove: docker compose -f /home/goug76/docker/docker-compose-prod.yml down
+  # Logs: docker compose -f /home/goug76/docker/docker-compose-prod.yml logs <container name>
 
   # CORE
-  - compose/socket-proxy.yml
-  - compose/prod/traefik.yml
   - compose/prod/portainer.yml
 
-  # Dashboard  
+  # Dashboard
   - compose/prod/dashy.yml

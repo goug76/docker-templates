@@ -18,6 +18,3 @@ sudo setfacl -Rm g:docker:rwx /home/goug76/docker
 # Set up GIT
 git config --global user.email "goug76@gmail.com"
 git config --global user.name "John Goughenour"
-
-# Trust Docker root directory
-git config --global --add safe.directory /home/goug76/docker

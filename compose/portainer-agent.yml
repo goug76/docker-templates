@@ -6,10 +6,7 @@ services:
     security_opt:
       - no-new-privileges:true
     restart: unless-stopped
-    # networks:
-    #   - socket_proxy
-    # command: -H unix:///var/run/docker.sock # # Use Docker Socket Proxy instead for improved security
-    # command: -H tcp://socket-proxy:2375
+    command: -H unix:///var/run/docker.sock
     ports:
       - "9001:9001"
     volumes:

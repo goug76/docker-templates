@@ -14,6 +14,12 @@ networks:
 
 include:
   # PREFIX dns = DNS / AdBlock Server
+  # Deploy: docker compose -f /home/goug76/docker/docker-compose-dns.yml up -d
+  # Remove: docker compose -f /home/goug76/docker/docker-compose-dns.yml down
+  # Logs: docker compose -f /home/goug76/docker/docker-compose-dns.yml logs <container name>
+
+  # Reverse Proxy Manager
+  - compose/npm.yml
 
   # Portainer Agent
   - compose/portainer-agent.yml
