@@ -12,6 +12,6 @@ services:
     volumes:
       - $DOCKERDIR/appdata/npm/data:/data
       - $DOCKERDIR/appdata/npm/letsencrypt:/etc/letsencrypt
-      - $DOCKERDIR/appdata/npm/css/main.css:/app/frontend/css/main.css
+      - $DOCKERDIR/appdata/npm/css:/app/frontend/css
     networks:
       - rpi4b-network
