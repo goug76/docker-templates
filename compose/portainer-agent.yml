@@ -6,7 +6,6 @@ services:
     security_opt:
       - no-new-privileges:true
     restart: unless-stopped
-    command: -H unix:///var/run/docker.sock
     ports:
       - "9001:9001"
     volumes:

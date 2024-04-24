@@ -19,7 +19,7 @@ include:
   # Logs: docker compose -f /home/goug76/docker/docker-compose-dns.yml logs <container name>
 
   # Reverse Proxy Manager
-  - compose/npm.yml
+  - compose/dns/npm.yml
 
   # Portainer Agent
   - compose/portainer-agent.yml
