@@ -8,11 +8,10 @@ services:
       - '81:81'
       - '443:443'
     environment:
-      - DOCKER_MODS=ghcr.io/themepark-dev/theme.park:sonarr
       - TZ=$TZ
     volumes:
       - $DOCKERDIR/appdata/npm/data:/data
       - $DOCKERDIR/appdata/npm/letsencrypt:/etc/letsencrypt
-      - $DOCKERDIR/appdata/npm/98-themepark:/etc/cont-init.d/99-themepark
+      - $DOCKERDIR/appdata/npm/css/main.css:/app/frontend/css/main.css
     networks:
       - rpi4b-network
