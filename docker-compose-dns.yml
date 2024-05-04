@@ -39,3 +39,6 @@ include:
 
   # Ansible  
   - compose/dns/semaphore.yml
+
+  # Password Manager  
+  - compose/dns/vaultwarden.yml

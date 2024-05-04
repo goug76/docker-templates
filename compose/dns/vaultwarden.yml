@@ -1,0 +1,13 @@
+services:
+  vaultwarden:
+    container_name: vaultwarden
+    image: vaultwarden/server:latest
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - '83:80'
+    volumes:
+      - $DOCKERDIR/appdata/vaultwarden/:/data/
+    networks:
+      rpi4b-network:
