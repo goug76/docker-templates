@@ -9,9 +9,6 @@ secrets/
 !appdata/cloudflare-ddns/*
 appdata/cloudflare-ddns/config.json
 
-!appdata/traefik/*
-appdata/traefik/acme/acme.json
-
 appdata/adguardhome/
 appdata/mysql/
 appdata/portainer

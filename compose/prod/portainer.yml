@@ -6,13 +6,13 @@ services:
     security_opt:
       - no-new-privileges:true
     restart: unless-stopped
-    networks:
-      - default
     command: -H unix:///var/run/docker.sock
     ports:
       - 9443:9443
+    environment:
+      - TZ=$TZ
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - $DOCKERDIR/appdata/portainer/data:/data
-    environment:
-      - TZ=$TZ
+    networks:
+      - default

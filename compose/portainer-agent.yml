@@ -8,8 +8,8 @@ services:
     restart: unless-stopped
     ports:
       - "9001:9001"
+    environment:
+      - TZ=$TZ
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro # # Use Docker Socket Proxy instead for improved security
       - /var/lib/docker/volumes:/var/lib/docker/volumes
-    environment:
-      - TZ=$TZ

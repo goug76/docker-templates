@@ -1,12 +1,12 @@
 services:
   dashy:
-    image: lissy93/dashy:latest
     container_name: dashy
+    image: lissy93/dashy:latest
+    restart: unless-stopped
     ports:
       - '8080:80'
+    environment:
+      - TZ=$TZ
     volumes:
       - $DOCKERDIR/appdata/dashy/conf.yml:/app/public/conf.yml
       - $DOCKERDIR/appdata/dashy/icons:/app/public/item-icons/icons
-    environment:
-      - TZ=$TZ
-    restart: unless-stopped

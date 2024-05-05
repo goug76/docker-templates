@@ -1,22 +1,22 @@
 services:
   mysql:
     container_name: mysql
-    restart: unless-stopped
     image: mysql
     security_opt:
       - no-new-privileges:true
+    restart: unless-stopped
     command: --pid-file /var/lib/mysql/mysqld.pid
     hostname: mysql
     ports:
       - 3306:3306
-    volumes:
-      - $DOCKERDIR/appdata/mysql:/var/lib/mysql
     environment:
       MYSQL_DATABASE: semaphore
       MYSQL_USER: ${USER}
       MYSQL_PASSWORD: '${MYSQL_PWD}'
       MYSQL_ROOT_PASSWORD: '${MYSQL_PWD}'
       TZ: '${TZ}'
+    volumes:
+      - $DOCKERDIR/appdata/mysql:/var/lib/mysql
     networks:
       mysql-network:
         ipv4_address: 172.21.0.10 # fixed IP address

@@ -1,7 +1,8 @@
 services:
   adguardhome: 
-    image: adguard/adguardhome
     container_name: adguardhome
+    image: adguard/adguardhome
+    restart: unless-stopped
     ports:
       - 53:53/tcp # DNS
       - 53:53/udp
@@ -10,11 +11,10 @@ services:
       - 3000:3000/tcp # initial installation
       - 82:80/tcp # Dashboard
       - 4443:443/tcp # DNS over HTTPs
+    environment:
+      - TZ=$TZ
     volumes:
       - $DOCKERDIR/appdata/adguardhome/work:/opt/adguardhome/work
       - $DOCKERDIR/appdata/adguardhome/conf:/opt/adguardhome/conf
-    restart: unless-stopped
-    environment:
-      - TZ=$TZ
     networks:
       - rpi4b-network

@@ -18,26 +18,22 @@ include:
   # Remove: docker compose -f /home/goug76/docker/docker-compose-dns.yml down
   # Logs: docker compose -f /home/goug76/docker/docker-compose-dns.yml logs <container name>
 
-  # Reverse Proxy Manager
-  - compose/dns/npm.yml
-
   # Portainer Agent
   - compose/portainer-agent.yml
 
-  # Adblocking
+  # Reverse Proxy Manager
+  - compose/dns/npm.yml
+
+  # Adblocking DNS
   - compose/dns/adguardhome.yml
-
-  # DNS Resolver
   - compose/dns/unbound.yml
-
-  # DDNS 
   - compose/dns/cloudflare-ddns.yml
 
   # Database
   - compose/dns/mysql.yml
   - compose/dns/phpmyadmin.yml
 
-  # Ansible  
+  # Ansible Semaphore
   - compose/dns/semaphore.yml
 
   # Password Manager  
