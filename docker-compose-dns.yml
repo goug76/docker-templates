@@ -21,6 +21,10 @@ include:
   # Portainer
   - compose/dns/portainer.yml
 
+  # Database
+  - compose/dns/mysql.yml
+  - compose/dns/phpmyadmin.yml
+
   # Reverse Proxy Manager
   - compose/dns/npm.yml
 
@@ -28,10 +32,6 @@ include:
   - compose/dns/adguardhome.yml
   - compose/dns/unbound.yml
   - compose/dns/cloudflare-ddns.yml
-
-  # Database
-  - compose/dns/mysql.yml
-  - compose/dns/phpmyadmin.yml
 
   # Ansible Semaphore
   - compose/dns/semaphore.yml
