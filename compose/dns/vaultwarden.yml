@@ -7,6 +7,13 @@ services:
       - no-new-privileges:true
     ports:
       - '83:80'
+    environment:
+      - PUSH_ENABLED=true
+      - PUSH_INSTALLATION_ID=${PUSH_INSTALLATION_ID}
+      - PUSH_INSTALLATION_KEY=${PUSH_INSTALLATION_KEY}
+      - SIGNUPS_ALLOWED=false
+      - ADMIN_TOKEN=${ADMIN_TOKEN}
+      - TZ=$TZ
     volumes:
       - $DOCKERDIR/appdata/vaultwarden/:/data/
     networks:
