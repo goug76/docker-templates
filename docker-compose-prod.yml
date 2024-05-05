@@ -9,7 +9,4 @@ include:
   # Logs: docker compose -f /home/goug76/docker/docker-compose-prod.yml logs <container name>
 
   # CORE
-  - compose/prod/portainer.yml
-
-  # Dashboard
-  - compose/prod/dashy.yml
+  - compose/portainer-agent.yml

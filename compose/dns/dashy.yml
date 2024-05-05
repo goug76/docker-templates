@@ -10,3 +10,5 @@ services:
     volumes:
       - $DOCKERDIR/appdata/dashy/conf.yml:/app/public/conf.yml
       - $DOCKERDIR/appdata/dashy/icons:/app/public/item-icons/icons
+    networks:
+      - rpi4b-network

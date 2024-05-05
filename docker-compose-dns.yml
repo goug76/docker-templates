@@ -18,8 +18,8 @@ include:
   # Remove: docker compose -f /home/goug76/docker/docker-compose-dns.yml down
   # Logs: docker compose -f /home/goug76/docker/docker-compose-dns.yml logs <container name>
 
-  # Portainer Agent
-  - compose/portainer-agent.yml
+  # Portainer
+  - compose/dns/portainer.yml
 
   # Reverse Proxy Manager
   - compose/dns/npm.yml
@@ -38,3 +38,6 @@ include:
 
   # Password Manager  
   - compose/dns/vaultwarden.yml
+
+  # Dashboard
+  - compose/dns/dashy.yml
