@@ -1,22 +1,209 @@
 pageInfo:
-  title: Home Lab
-sections: # An array of sections
-- name: Example Section
-  icon: far fa-rocket
-  items:
-  - title: GitHub
-    description: Dashy source code and docs
-    icon: fab fa-github
-    url: https://github.com/Lissy93/dashy
-  - title: Issues
-    description: View open issues, or raise a new one
-    icon: fas fa-bug
-    url: https://github.com/Lissy93/dashy/issues
-- name: Local Services
-  items:
-  - title: Firewall
-    icon: favicon
-    url: http://192.168.1.1/
-  - title: Game Server
-    icon: https://i.ibb.co/710B3Yc/space-invader-x256.png
-    url: http://192.168.130.1/
+  title: Goug's Home Lab
+  description: Everything in one place!
+  navLinks:
+    - title: GitHub
+      path: https://github.com/goug76?tab=repositories
+      target: newtab
+    - title: Home Router
+      path: http://192.168.1.1/Main_Login.asp
+      target: newtab
+    - title: Garage Extender
+      path: http://192.168.1.2/login.html
+      target: newtab
+    - title: Coundflare
+      path: https://dash.cloudflare.com/d9307ea7a82e273a8c9ee20841e3cd70?account=
+      target: newtab
+  logo: /item-icons/icons/homelab.png
+appConfig:
+  theme: adventure-basic
+  layout: auto
+  iconSize: large
+  hideComponents:
+    hideSettings: true
+    hideHeading: false
+    hideNav: false
+    hideSearch: false
+    hideFooter: true
+  startingView: default
+  defaultOpeningMethod: newtab
+  statusCheck: true
+  statusCheckInterval: 10
+  statusCheckAllowInsecure: true
+  faviconApi: allesedv
+  routingMode: history
+  enableMultiTasking: false
+  widgetsAlwaysUseProxy: false
+  webSearch:
+    disableWebSearch: false
+    searchEngine: duckduckgo
+    openingMethod: newtab
+    searchBangs: {}
+  enableFontAwesome: true
+  enableMaterialDesignIcons: false
+  auth:
+    enableGuestAccess: false
+    users: []
+    enableHeaderAuth: false
+    headerAuth:
+      userHeader: REMOTE_USER
+      proxyWhitelist: []
+    enableKeycloak: false
+  showSplashScreen: true
+  preventWriteToDisk: false
+  preventLocalSave: false
+  disableConfiguration: false
+  disableConfigurationForNonAdmin: false
+  allowConfigEdit: true
+  enableServiceWorker: false
+  disableContextMenu: false
+  disableUpdateChecks: false
+  disableSmartSort: false
+  enableErrorReporting: false
+sections:
+  - name: Glances Monitoring
+    icon: icons/glances.png
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 4
+      collapsed: true
+      hideForGuests: false
+      itemSize: medium
+    items:
+      - title: Raspberry Pi DNS
+        description: System Monitoring
+        icon: icons/raspberrypi.png
+        url: http://192.168.1.3:61208/
+        target: modal
+        id: 0_1795_raspberrypidns
+  - name: Home Lab
+    icon: far fa-server
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 4
+      collapsed: false
+      hideForGuests: false
+    items:
+      - title: Proxmox
+        description: Virtual Machine Management System
+        icon: icons/proxmox.png
+        url: https://192.168.1.5:8006/
+        target: newtab
+        statusCheck: true
+        statusCheckAllowInsecure: true
+        id: 0_696_proxmox
+      - title: Portainer
+        description: Docker Container Management Tool
+        icon: icons/portainer.png
+        url: https://portainer.goug.info/
+        target: newtab
+        id: 1_696_portainer
+      - title: Semaphore
+        description: Ansible Graphical Interface
+        icon: icons/semaphore.png
+        url: https://semaphore.goug.info/
+        target: newtab
+        id: 2_696_semaphore
+      - title: NPM
+        description: Nginx Proxy Manager
+        icon: icons/nginx-proxy-manager.png
+        url: https://npm.goug.info/
+        target: newtab
+        id: 3_696_npm
+      - title: phpMyAdmin
+        description: MySQL Database Manager
+        icon: icons/phpmyadmin.png
+        url: http://192.168.1.3:8080
+        target: newtab
+        id: 4_696_phpmyadmin
+  - name: Services
+    icon: far fa-cloud
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    items:
+      - title: Adguard-Home
+        description: Ad Blocker and DNS Server
+        icon: icons/adguard-home.png
+        url: https://adguard.goug.info/
+        target: newtab
+        id: 0_836_adguardhome
+      - title: Vaultwarden
+        description: Password Management Tool
+        icon: icons/vaultwarden-light.png
+        url: https://vaultwarden.goug.info/#/login
+        target: newtab
+        id: 1_836_vaultwarden
+  - name: Web Services
+    icon: far fa-globe
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 2
+      collapsed: false
+      hideForGuests: false
+    items:
+      - title: This Old Smart Home
+        description: Smart Home Blog
+        icon: icons/tosh.png
+        url: https://thisoldsmarthome.com/
+        target: newtab
+        id: 0_1154_thisoldsmarthome
+      - title: CyberPanel
+        description: Web Server Management Interface
+        icon: icons/cyberpanel.png
+        url: https://cyberpanel.thisoldsmarthome.com/
+        target: newtab
+        id: 1_1154_cyberpanel
+      - title: OpenLiteSpeed
+        description: Web Server
+        icon: icons/openlitespeed.png
+        url: https://ls.thisoldsmarthome.com/
+        target: newtab
+        id: 2_1154_openlitespeed
+  - name: Smart Home
+    icon: far fa-house-signal
+    displayData:
+      sortBy: default
+      collapsed: false
+      hideForGuests: false
+      itemSize: medium
+      sectionLayout: grid
+      itemCountX: 3
+    items:
+      - title: Home
+        description: Hubiitat Elevation Smart Home Platform
+        icon: icons/hubitat.png
+        url: https://home-he.goug.local/
+        target: newtab
+        statusCheck: true
+        statusCheckUrl: https://192.168.1.33/
+        statusCheckAllowInsecure: true
+        id: 0_944_home
+      - title: Garage
+        icon: icons/hubitat.png
+        url: https://192.168.1.31
+        id: 1_944_garage
+        statusCheck: true
+        statusCheckAllowInsecure: true
+      - title: Dev
+        icon: icons/hubitat.png
+        url: https://192.168.1.32
+        statusCheck: true
+        statusCheckAllowInsecure: true
+        id: 2_944_dev
+      - title: Home
+        icon: icons/home-assistant.png
+        url: http://ha.goug.local:8123/
+        statusCheck: true
+        statusCheckUrl: http://192.168.1.34:8123/
+        id: 3_944_home
+      - title: Dev
+        icon: icons/home-assistant.png
+        url: http://ha-dev.goug.local:8123/
+        id: 4_944_dev

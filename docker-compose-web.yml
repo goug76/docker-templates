@@ -1,0 +1,15 @@
+networks:
+  default:
+    driver: bridge
+
+include:
+  # PREFIX Web = Web Server
+  # Deploy: docker compose -f /home/goug76/docker/docker-compose-web.yml up -d
+  # Remove: docker compose -f /home/goug76/docker/docker-compose-web.yml down
+  # Logs: docker compose -f /home/goug76/docker/docker-compose-web.yml logs <container name>
+
+  # CORE
+  - compose/portainer-agent.yml
+
+  # Monitoring
+  - compose/glances.yml
