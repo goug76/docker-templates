@@ -41,3 +41,4 @@ include:
 
   # Dashboard
   - compose/dns/dashy.yml
+  - compose/glances.yml

@@ -1,0 +1,15 @@
+services:
+  glances:
+    container_name: glances
+    image: nicolargo/glances:latest-full
+    restart: unless-stopped
+    ports:
+      - 61208:61208
+    environment:
+      - GLANCES_OPT="-w --password"
+      - PUID = ${PUID}
+      - PGID = ${PGID}
+      - TZ=$TZ
+    pid: host
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro

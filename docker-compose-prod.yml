@@ -10,3 +10,6 @@ include:
 
   # CORE
   - compose/portainer-agent.yml
+
+  # Monitoring
+  - compose/glances.yml
