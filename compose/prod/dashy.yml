@@ -11,4 +11,4 @@ services:
       - $DOCKERDIR/appdata/dashy/conf.yml:/app/user-data/conf.yml
       - $DOCKERDIR/appdata/dashy/icons:/app/public/item-icons/icons
     networks:
-      - rpi4b-network
+      - default
