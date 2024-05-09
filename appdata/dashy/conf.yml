@@ -76,7 +76,21 @@ sections:
         icon: icons/raspberrypi.png
         url: http://192.168.1.3:61208/
         target: modal
-        id: 0_1795_raspberrypidns
+      - title: Production Server
+        description: Main Production Docker Server
+        icon: icons/docker-moby.png
+        url: http://192.168.1.20:61208/
+        target: modal
+      - title: Web Server
+        description: Web Server
+        icon: icons/webtop.png
+        url: http://192.168.1.21:61208/
+        target: modal
+      - title: AI Server
+        description: Artificial Intelligence Server
+        icon: icons/ai.png
+        url: http://192.168.1.22:61208/
+        target: modal
   - name: Home Lab
     icon: far fa-server
     displayData:
