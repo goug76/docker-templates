@@ -1,0 +1,15 @@
+networks:
+  default:
+    driver: bridge
+
+include:
+  # PREFIX Web = AI Server
+  # Deploy: docker compose -f /home/goug76/docker/docker-compose-ai.yml up -d
+  # Remove: docker compose -f /home/goug76/docker/docker-compose-ai.yml down
+  # Logs: docker compose -f /home/goug76/docker/docker-compose-ai.yml logs <container name>
+
+  # CORE
+  - compose/portainer-agent.yml
+
+  # Monitoring
+  - compose/glances.yml
