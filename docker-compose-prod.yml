@@ -13,3 +13,6 @@ include:
 
   # Monitoring
   - compose/glances.yml
+
+  # Dashboard
+  - compose/prod/dashy.yml

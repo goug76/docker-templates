@@ -49,7 +49,7 @@ appConfig:
       userHeader: REMOTE_USER
       proxyWhitelist: []
     enableKeycloak: false
-  showSplashScreen: true
+  showSplashScreen: false
   preventWriteToDisk: false
   preventLocalSave: false
   disableConfiguration: false
@@ -88,7 +88,7 @@ sections:
         target: modal
       - title: AI Server
         description: Artificial Intelligence Server
-        icon: icons/ai.png
+        icon: icons/ai_light.png
         url: http://192.168.1.22:61208/
         target: modal
   - name: Home Lab
@@ -162,24 +162,26 @@ sections:
       collapsed: false
       hideForGuests: false
     items:
-      - title: This Old Smart Home
-        description: Smart Home Blog
-        icon: icons/tosh.png
-        url: https://thisoldsmarthome.com/
-        target: newtab
-        id: 0_1154_thisoldsmarthome
       - title: CyberPanel
-        description: Web Server Management Interface
+        description: Website Management Interface
         icon: icons/cyberpanel.png
         url: https://cyberpanel.thisoldsmarthome.com/
         target: newtab
-        id: 1_1154_cyberpanel
       - title: OpenLiteSpeed
         description: Web Server
         icon: icons/openlitespeed.png
         url: https://ls.thisoldsmarthome.com/
         target: newtab
-        id: 2_1154_openlitespeed
+      - title: Mautic
+        description: Marketing Automation Platform
+        icon: icons/mautic.png
+        url: https://mautic.thisoldsmarthome.com/
+        target: newtab
+      - title: This Old Smart Home
+        description: Smart Home Blog
+        icon: icons/tosh.png
+        url: https://thisoldsmarthome.com/
+        target: newtab
   - name: Smart Home
     icon: far fa-house-signal
     displayData:

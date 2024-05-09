@@ -4,7 +4,7 @@ services:
     image: lissy93/dashy:latest
     restart: unless-stopped
     ports:
-      - 84:8080
+      - 80:8080
     environment:
       - TZ=$TZ
     volumes:

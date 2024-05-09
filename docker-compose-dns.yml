@@ -40,5 +40,4 @@ include:
   - compose/dns/vaultwarden.yml
 
   # Dashboard
-  - compose/dns/dashy.yml
   - compose/glances.yml
