@@ -28,7 +28,7 @@ appConfig:
   startingView: default
   defaultOpeningMethod: newtab
   statusCheck: true
-  statusCheckInterval: 10
+  statusCheckInterval: 20
   statusCheckAllowInsecure: true
   faviconApi: allesedv
   routingMode: history
@@ -75,22 +75,22 @@ sections:
         description: System Monitoring
         icon: icons/raspberrypi.png
         url: http://192.168.1.3:61208/
-        target: modal
+        target: newtab
       - title: Production Server
         description: Main Production Docker Server
         icon: icons/docker-moby.png
         url: http://192.168.1.20:61208/
-        target: modal
+        target: newtab
       - title: Web Server
         description: Web Server
         icon: icons/webtop.png
         url: http://192.168.1.21:61208/
-        target: modal
+        target: newtab
       - title: AI Server
         description: Artificial Intelligence Server
         icon: icons/ai_light.png
         url: http://192.168.1.22:61208/
-        target: modal
+        target: newtab
   - name: Home Lab
     icon: far fa-server
     displayData:
