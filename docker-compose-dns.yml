@@ -24,6 +24,8 @@ include:
   # Database
   - compose/dns/mysql.yml
   - compose/dns/phpmyadmin.yml
+  - compose/dns/postgres.yml
+  - compose/dns/adminer.yml
 
   # Reverse Proxy Manager
   - compose/dns/npm.yml
