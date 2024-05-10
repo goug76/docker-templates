@@ -5,6 +5,8 @@ networks:
     ipam:
       config:
         - subnet: 172.20.0.0/24
+  database-network:
+    driver: bridge
   mysql-network:
     driver: bridge
     name: mysql-network
