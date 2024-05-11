@@ -17,4 +17,4 @@ services:
     volumes:
       - $DOCKERDIR/appdata/vaultwarden/:/data/
     networks:
-      mysql-network:
+      database-network:
