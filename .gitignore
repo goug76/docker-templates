@@ -13,6 +13,7 @@ appdata/adguardhome/
 appdata/mysql/
 appdata/semaphore/
 appdata/portainer
+appdata/pgadmin
 
 # Security
 *.env

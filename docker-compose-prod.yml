@@ -1,6 +1,9 @@
 networks:
   default:
     driver: bridge
+  database-network:
+    driver: bridge
+    name: database-network
 
 include:
   # PREFIX prod = Production Docker Server
@@ -13,6 +16,12 @@ include:
 
   # Monitoring
   - compose/glances.yml
+
+  # Database
+  - compose/postgres.yml
+
+  # Single Sign On
+  - compose/prod/authentik.yml
 
   # Dashboard
   - compose/prod/dashy.yml

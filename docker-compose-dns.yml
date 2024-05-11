@@ -19,7 +19,7 @@ include:
   - compose/dns/portainer.yml
 
   # Database
-  - compose/dns/postgres.yml
+  - compose/postgres.yml
   - compose/dns/pgadmin.yml
 
   # Reverse Proxy Manager
@@ -35,7 +35,6 @@ include:
 
   # Password Manager SSO
   - compose/dns/vaultwarden.yml
-  - compose/dns/authentik.yml
 
   # Dashboard
   - compose/glances.yml

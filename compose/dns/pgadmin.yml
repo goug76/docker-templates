@@ -13,6 +13,6 @@ services:
       TZ: '${TZ}'
     volumes: 
       - $DOCKERDIR/appdata/pgadmin:/var/lib/pgadmin
-      - $DOCKERDIR/appdata/pgadmin:/pgadmin4/config_local.py
+      - $DOCKERDIR/appdata/pgadmin/config_local.py:/pgadmin4/config_local.py
     networks:
       - database-network
