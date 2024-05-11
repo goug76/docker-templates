@@ -1,0 +1,17 @@
+pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: '${EMAIL}'
+      PGADMIN_DEFAULT_PASSWORD: '${PGADMIN_DEFAULT_PASSWORD}'
+      TZ: '${TZ}'
+    volumes: 
+      - $DOCKERDIR/appdata/pgadmin:/var/lib/pgadmin
+      - $DOCKERDIR/appdata/pgadmin:/pgadmin4/config_local.py
+    networks:
+      - database-network
