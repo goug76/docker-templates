@@ -7,12 +7,7 @@ networks:
         - subnet: 172.20.0.0/24
   database-network:
     driver: bridge
-  mysql-network:
-    driver: bridge
-    name: mysql-network
-    ipam:
-      config:
-        - subnet: 172.21.0.0/24
+    name: database-network
 
 include:
   # PREFIX dns = DNS / AdBlock Server
@@ -24,8 +19,6 @@ include:
   - compose/dns/portainer.yml
 
   # Database
-  - compose/dns/mysql.yml
-  - compose/dns/phpmyadmin.yml
   - compose/dns/postgres.yml
   - compose/dns/pgadmin.yml
 
@@ -40,8 +33,9 @@ include:
   # Ansible Semaphore
   - compose/dns/semaphore.yml
 
-  # Password Manager  
+  # Password Manager SSO
   - compose/dns/vaultwarden.yml
+  - compose/dns/authentik.yml
 
   # Dashboard
   - compose/glances.yml
