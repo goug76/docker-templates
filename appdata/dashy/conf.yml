@@ -86,11 +86,6 @@ sections:
         icon: icons/webtop.png
         url: http://192.168.1.21:61208/
         target: newtab
-      - title: AI Server
-        description: Artificial Intelligence Server
-        icon: icons/ai_light.png
-        url: http://192.168.1.22:61208/
-        target: newtab
   - name: Home Lab
     icon: far fa-server
     displayData:
@@ -113,25 +108,26 @@ sections:
         icon: icons/portainer.png
         url: https://portainer.goug.info/
         target: newtab
-        id: 1_696_portainer
       - title: Semaphore
         description: Ansible Graphical Interface
         icon: icons/semaphore.png
         url: https://semaphore.goug.info/
         target: newtab
-        id: 2_696_semaphore
       - title: NPM
         description: Nginx Proxy Manager
         icon: icons/nginx-proxy-manager.png
         url: https://npm.goug.info/
         target: newtab
-        id: 3_696_npm
-      - title: phpMyAdmin
-        description: MySQL Database Manager
-        icon: icons/phpmyadmin.png
-        url: http://192.168.1.3:8080
+      - title: pgAmdmin
+        description: Postgres Database Manager
+        icon: icons/postgres.png
+        url: http://pgadmin.goug.info
         target: newtab
-        id: 4_696_phpmyadmin
+      - title: Authentik
+        description: Single Sign On Idenity Manager
+        icon: icons/authentik.png
+        url: http://authentik.goug.info
+        target: newtab
   - name: Services
     icon: far fa-cloud
     displayData:
