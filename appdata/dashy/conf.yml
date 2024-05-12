@@ -98,11 +98,10 @@ sections:
       - title: Proxmox
         description: Virtual Machine Management System
         icon: icons/proxmox.png
-        url: https://192.168.1.5:8006/
+        url: https://pve.goug.info
         target: newtab
         statusCheck: true
         statusCheckAllowInsecure: true
-        id: 0_696_proxmox
       - title: Portainer
         description: Docker Container Management Tool
         icon: icons/portainer.png
