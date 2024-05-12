@@ -17,3 +17,5 @@ appdata/pgadmin
 
 # Security
 *.env
+.env.dns
+.env.prod
