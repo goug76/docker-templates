@@ -22,6 +22,9 @@ include:
   - compose/postgres.yml
   - compose/dns/pgadmin.yml
 
+  # Certificate Authority
+  - compose/dns/step-ca.yml
+
   # Reverse Proxy Manager
   - compose/dns/npm.yml
 

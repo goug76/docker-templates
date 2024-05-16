@@ -1,0 +1,13 @@
+services:
+  step-ca:
+    container_name: step-ca
+    image: smallstep/step-ca
+    restart: unless-stopped
+    ports:
+      - 8443:8443
+    environment:
+      - TZ=$TZ
+    volumes:
+      - $DOCKERDIR/appdata/step:/home/step
+    networks:
+      - rpi4b-network
