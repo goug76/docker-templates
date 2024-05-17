@@ -13,3 +13,6 @@ include:
 
   # Monitoring
   - compose/glances.yml
+
+  # Certificate Authority
+  - compose/dns/step-ca.yml
