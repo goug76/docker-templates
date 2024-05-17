@@ -9,3 +9,5 @@ services:
       - TZ=$TZ
     volumes:
       - $DOCKERDIR/appdata/step:/home/step
+    extra_hosts:
+      - 'ca.goug.local:127.0.0.1'
