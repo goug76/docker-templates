@@ -9,5 +9,3 @@ services:
       - TZ=$TZ
     volumes:
       - $DOCKERDIR/appdata/step:/home/step
-    networks:
-      - rpi4b-network
