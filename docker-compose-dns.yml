@@ -18,9 +18,10 @@ include:
   # Portainer
   - compose/dns/portainer.yml
 
-  # Database
-  - compose/postgres.yml
-  - compose/dns/pgadmin.yml
+  # Adblocking DNS
+  - compose/dns/adguardhome.yml
+  - compose/dns/unbound.yml
+  - compose/dns/cloudflare-ddns.yml
 
   # Certificate Authority
   - compose/dns/step-ca.yml
@@ -28,10 +29,12 @@ include:
   # Reverse Proxy Manager
   - compose/dns/npm.yml
 
-  # Adblocking DNS
-  - compose/dns/adguardhome.yml
-  - compose/dns/unbound.yml
-  - compose/dns/cloudflare-ddns.yml
+  # VPN
+  - compose/dns/wireguard.yml
+
+  # Database
+  - compose/postgres.yml
+  - compose/dns/pgadmin.yml
 
   # Ansible Semaphore
   - compose/dns/semaphore.yml

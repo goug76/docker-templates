@@ -12,8 +12,9 @@ appdata/cloudflare-ddns/config.json
 appdata/adguardhome/
 appdata/mysql/
 appdata/semaphore/
-appdata/portainer
-appdata/pgadmin
+appdata/portainer/
+appdata/pgadmin/
+appdata/step/
 
 # Security
 *.env
