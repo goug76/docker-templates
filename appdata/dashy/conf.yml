@@ -98,35 +98,44 @@ sections:
       - title: Proxmox
         description: Virtual Machine Management System
         icon: icons/proxmox.png
-        url: https://pve.goug.info
+        url: https://pve.goug.local
         target: newtab
         statusCheck: true
         statusCheckAllowInsecure: true
       - title: Portainer
         description: Docker Container Management Tool
         icon: icons/portainer.png
-        url: https://portainer.goug.info/
+        url: https://portainer.goug.local/
+        statusCheckAllowInsecure: true
         target: newtab
       - title: Semaphore
         description: Ansible Graphical Interface
         icon: icons/semaphore.png
-        url: https://semaphore.goug.info/
+        url: https://semaphore.goug.local/
+        statusCheckAllowInsecure: true
         target: newtab
       - title: NPM
         description: Nginx Proxy Manager
         icon: icons/nginx-proxy-manager.png
-        url: https://npm.goug.info/
+        url: https://npm.goug.local/
+        statusCheckAllowInsecure: true
         target: newtab
       - title: pgAmdmin
         description: Postgres Database Manager
         icon: icons/postgres.png
-        url: http://pgadmin.goug.info
+        url: http://pgadmin.goug.local
+        statusCheckAllowInsecure: true
         target: newtab
       - title: Authentik
         description: Single Sign On Idenity Manager
         icon: icons/authentik.png
         url: http://authentik.goug.info
         target: newtab
+      - title: TrueNAS
+        description: Network Attached Storage
+        icon: icons/truenas.png
+        url: http://truenas.goug.local
+        statusCheckAllowInsecure: true
   - name: Services
     icon: far fa-cloud
     displayData:
@@ -139,7 +148,8 @@ sections:
       - title: Adguard-Home
         description: Ad Blocker and DNS Server
         icon: icons/adguard-home.png
-        url: https://adguard.goug.info/
+        url: https://adguard.goug.local/
+        statusCheckAllowInsecure: true
         target: newtab
         id: 0_836_adguardhome
       - title: Vaultwarden
@@ -148,6 +158,12 @@ sections:
         url: https://vaultwarden.goug.info/#/login
         target: newtab
         id: 1_836_vaultwarden
+      - title: WireGuard
+        description: Virtal Private Network
+        icon: icons/wireguard.png
+        url: https://wireguard.goug.local/
+        statusCheckAllowInsecure: true
+        target: newtab
   - name: Web Services
     icon: far fa-globe
     displayData:

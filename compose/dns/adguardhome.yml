@@ -17,4 +17,5 @@ services:
       - $DOCKERDIR/appdata/adguardhome/work:/opt/adguardhome/work
       - $DOCKERDIR/appdata/adguardhome/conf:/opt/adguardhome/conf
     networks:
-      - rpi4b-network
+      rpi4b-network:
+        ipv4_address: 172.20.0.54

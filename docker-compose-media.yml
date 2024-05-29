@@ -1,0 +1,25 @@
+networks:
+  media-network:
+    name: media-network
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+
+include:
+  # PREFIX media = media Server
+  # Deploy: docker compose -f /home/goug76/docker/docker-compose-media.yml up -d
+  # Remove: docker compose -f /home/goug76/docker/docker-compose-media.yml down
+  # Logs: docker compose -f /home/goug76/docker/docker-compose-media.yml logs <container name>
+
+  # CORE
+  - compose/portainer-agent.yml
+
+  # Monitoring
+  - compose/glances.yml
+
+  # VPN Tunnel
+  - compose/media/gluetun.yml
+
+  # Media Players
+  - compose/media/plex.yml

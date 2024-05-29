@@ -1,0 +1,26 @@
+# https://github.com/qdm12/gluetun-wiki/tree/main
+services:
+  gluetun:
+    container_name: gluetun
+    image: qmcgaw/gluetun
+    restart: unless-stopped
+    ports:
+      - 6881:6881
+      - 6881:6881/udp
+      # - 8085:8085 # qbittorrent
+      # - 9117:9117 # Jackett
+      # - 8989:8989 # Sonarr
+      # - 9696:9696 # Prowlarr
+    volumes:
+      - $DOCKERDIR/appdata/adguardhome/gluetun:/gluetun
+    environment:
+      - VPN_SERVICE_PROVIDER=nordvpn
+      - VPN_TYPE=wireguard
+      - WIREGUARD_PRIVATE_KEY=${WIREGUARD_PRIVATE_KEY}
+      - WIREGUARD_ADDRESSES=${WIREGUARD_ADDRESSES}
+      - TZ=${TZ}
+      - UPDATER_PERIOD=24h
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun

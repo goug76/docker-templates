@@ -20,3 +20,4 @@ appdata/step/
 *.env
 .env.dns
 .env.prod
+.env.media

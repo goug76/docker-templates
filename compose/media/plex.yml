@@ -1,0 +1,15 @@
+# https://github.com/linuxserver/docker-plex
+services:
+  plex:
+    container_name: plex
+    image: lscr.io/linuxserver/plex:latest
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - $DOCKERDIR/appdata/plex:/config
+      - /mnt/multimedia:/multimedia
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - VERSION=docker
