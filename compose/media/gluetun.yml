@@ -12,7 +12,7 @@ services:
       # - 8989:8989 # Sonarr
       # - 9696:9696 # Prowlarr
     volumes:
-      - $DOCKERDIR/appdata/adguardhome/gluetun:/gluetun
+      - $DOCKERDIR/appdata/gluetun:/gluetun
     environment:
       - VPN_SERVICE_PROVIDER=nordvpn
       - VPN_TYPE=wireguard
