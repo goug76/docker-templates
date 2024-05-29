@@ -24,3 +24,6 @@ services:
       - NET_ADMIN
     devices:
       - /dev/net/tun:/dev/net/tun
+    networks:
+      media-network:
+        ipv4_address: 172.20.0.53 # fixed IP address
