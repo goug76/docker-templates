@@ -1,6 +1,7 @@
 services:
   vpn:
-    image: ghcr.io/bubuntux/nordvpn
+    container_name: vpn
+    image: docker pull ghcr.io/goug76/nordvpn:latest
     cap_add:
       - NET_ADMIN               # Required
       - NET_RAW                 # Required
