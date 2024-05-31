@@ -1,7 +1,7 @@
 services:
   vpn:
     container_name: vpn
-    image: ghcr.io/goug76/nordvpn:latest
+    image: goug76/nordvpn:latest
     cap_add:
       - NET_ADMIN               # Required
       - NET_RAW                 # Required
