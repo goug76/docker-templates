@@ -7,7 +7,7 @@ services:
     network_mode: host
     volumes:
       - $DOCKERDIR/appdata/plex:/config
-      - /mnt/multimedia:/multimedia
+      - /mnt/media:/media
     environment:
       - PUID=${PUID}
       - PGID=${PGID}

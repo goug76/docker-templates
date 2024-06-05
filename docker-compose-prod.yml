@@ -9,7 +9,9 @@ include:
   # PREFIX prod = Production Docker Server
   # Deploy: docker compose -f /home/goug76/docker/docker-compose-prod.yml up -d
   # Remove: docker compose -f /home/goug76/docker/docker-compose-prod.yml down
-  # Logs: docker compose -f /home/goug76/docker/docker-compose-prod.yml logs <container name>
+  # Logs:   docker compose -f /home/goug76/docker/docker-compose-prod.yml logs <container name>
+  # Update: docker compose -f /home/goug76/docker/docker-compose-prod.yml pull
+  #         docker compose -f /home/goug76/docker/docker-compose-prod.yml up --force-recreate -d
 
   # CORE
   - compose/portainer-agent.yml

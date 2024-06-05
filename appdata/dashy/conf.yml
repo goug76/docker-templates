@@ -1,15 +1,18 @@
 pageInfo:
-  title: Goug's Home Lab
-  description: Everything in one place!
+  title: Goug's Home Lab  
+  description: Everything in one place!  
   navLinks:
     - title: GitHub
       path: https://github.com/goug76?tab=repositories
       target: newtab
     - title: Home Router
-      path: http://192.168.1.1/Main_Login.asp
+      path: https://router.goug.local/Main_Login.asp
       target: newtab
     - title: Garage Extender
       path: http://192.168.1.2/login.html
+      target: newtab
+    - title: Server KVM
+      path: http://192.168.1.4/
       target: newtab
     - title: Coundflare
       path: https://dash.cloudflare.com/d9307ea7a82e273a8c9ee20841e3cd70?account=
@@ -123,18 +126,18 @@ sections:
       - title: pgAmdmin
         description: Postgres Database Manager
         icon: icons/postgres.png
-        url: http://pgadmin.goug.local
+        url: https://pgadmin.goug.local
         statusCheckAllowInsecure: true
         target: newtab
       - title: Authentik
         description: Single Sign On Idenity Manager
         icon: icons/authentik.png
-        url: http://authentik.goug.info
+        url: https://authentik.goug.info
         target: newtab
       - title: TrueNAS
         description: Network Attached Storage
         icon: icons/truenas.png
-        url: http://truenas.goug.local
+        url: https://truenas.goug.local
         statusCheckAllowInsecure: true
   - name: Services
     icon: far fa-cloud

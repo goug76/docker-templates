@@ -6,7 +6,9 @@ include:
   # PREFIX Web = Web Server
   # Deploy: docker compose -f /home/goug76/docker/docker-compose-web.yml up -d
   # Remove: docker compose -f /home/goug76/docker/docker-compose-web.yml down
-  # Logs: docker compose -f /home/goug76/docker/docker-compose-web.yml logs <container name>
+  # Logs:   docker compose -f /home/goug76/docker/docker-compose-web.yml logs <container name>
+  # Update: docker compose -f /home/goug76/docker/docker-compose-web.yml pull
+  #         docker compose -f /home/goug76/docker/docker-compose-web.yml up --force-recreate -d
 
   # CORE
   - compose/portainer-agent.yml
