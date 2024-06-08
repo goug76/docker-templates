@@ -21,7 +21,7 @@ include:
   - compose/glances.yml
 
   # VPN Tunnel
-  - compose/media/nordvpn.yml
+  # - compose/media/nordvpn.yml
 
   # Media Players
   - compose/media/plex.yml
