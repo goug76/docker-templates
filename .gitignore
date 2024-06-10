@@ -15,6 +15,7 @@ appdata/semaphore/
 appdata/portainer/
 appdata/pgadmin/
 appdata/step/
+appdata/plex/
 
 # Security
 *.env
