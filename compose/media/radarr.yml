@@ -1,0 +1,15 @@
+services:
+  radarr:
+    container_name: radarr
+    image: lscr.io/linuxserver/radarr:latest
+    restart: unless-stopped
+    ports:
+      - 7878:7878
+    volumes:
+      - $DOCKERDIR/appdata/radarr/data:/config
+      - /mnt/multimedia:/multimedia
+      - /mnt/downloads:/downloads #optional
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}

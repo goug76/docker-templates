@@ -25,4 +25,7 @@ include:
 
   # Media Players
   - compose/media/plex.yml
+
+  # ARR Stack
+  - compose/media/radarr.yml
   
