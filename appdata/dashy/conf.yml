@@ -89,6 +89,11 @@ sections:
         icon: icons/webtop.png
         url: http://192.168.1.21:61208/
         target: newtab
+      - title: Media Server
+        description: Media Server
+        icon: icons/plex.png
+        url: http://192.168.1.23:61208/
+        target: newtab
   - name: Home Lab
     icon: far fa-server
     displayData:
