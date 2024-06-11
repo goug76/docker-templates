@@ -3,13 +3,12 @@ services:
     container_name: prowlarr
     image: lscr.io/linuxserver/prowlarr:latest
     restart: unless-stopped
-    ports:
-      - 9696:9696
     volumes:
       - $DOCKERDIR/appdata/prowlarr/data:/config
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-    networks:
-      - media-network
+    network_mode: container:vpn
+    depends_on:
+      - vpn
