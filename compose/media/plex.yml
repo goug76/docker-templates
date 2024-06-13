@@ -5,11 +5,11 @@ services:
     image: lscr.io/linuxserver/plex:latest
     restart: unless-stopped
     network_mode: host
-    volumes:
-      - $DOCKERDIR/appdata/plex:/config
-      - /mnt/multimedia:/multimedia
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
       - VERSION=docker
+    volumes:
+      - $DOCKERDIR/appdata/plex:/config
+      - /mnt/multimedia:/multimedia

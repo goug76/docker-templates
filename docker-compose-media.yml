@@ -21,12 +21,17 @@ include:
   - compose/glances.yml
 
   # VPN Tunnel
-  - compose/media/nordvpn.yml
+  # - compose/media/nordvpn.yml
 
   # Media Players
   - compose/media/plex.yml
 
+  # Torrent Downloader
+  - compose/media/deluge.yml
+
   # ARR Stack
   - compose/media/prowlarr.yml
-  # - compose/media/radarr.yml
+  - compose/media/radarr.yml
+  - compose/media/sonarr.yml
+  - compose/media/overseerr.yml
   

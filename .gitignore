@@ -16,6 +16,11 @@ appdata/portainer/
 appdata/pgadmin/
 appdata/step/
 appdata/plex/
+appdata/prowlarr/
+appdata/radarr/
+appdata/sonarr/
+appdata/deluge/
+appdata/overseerr/
 
 # Security
 *.env

@@ -1,15 +1,15 @@
 services:
-  prowlarr:
-    container_name: prowlarr
-    image: lscr.io/linuxserver/prowlarr:latest
+  overseerr:
+    container_name: overseerr
+    image: lscr.io/linuxserver/overseerr:latest
     restart: unless-stopped
     ports:
-      - 9696:9696 # Prowlarr
+      - 5055:5055
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
     volumes:
-      - $DOCKERDIR/appdata/prowlarr/data:/config
+      - $DOCKERDIR/appdata/overseerr/config:/config
     networks:
       - media-network

@@ -5,12 +5,14 @@ services:
     cap_add:
       - NET_ADMIN               # Required
       - NET_RAW                 # Required
+    ports:
+      - 9696:9696 # Prowlarr
+      - 7878:7878 # Radarr
+      - 8989:8989 # Sonarr
     environment:                # Review https://github.com/bubuntux/nordvpn#environment-variables
       - TOKEN=${TOKEN}
       - CONNECT=United_States
       - TECHNOLOGY=NordLynx
       - NETWORK=${NETWORK}  # So it can be accessed within the local network
-    ports:
-      - 9696:9696 # Prowlarr
     sysctls:
       - net.ipv6.conf.all.disable_ipv6=1  # Recomended if using ipv4 only
