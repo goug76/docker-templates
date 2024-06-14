@@ -13,3 +13,5 @@ services:
     volumes:
       - $DOCKERDIR/appdata/plex:/config
       - /mnt/multimedia:/multimedia
+    networks:
+      - media-network
