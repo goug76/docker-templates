@@ -21,6 +21,7 @@ appdata/radarr/
 appdata/sonarr/
 appdata/deluge/
 appdata/overseerr/
+appdata/qbittorrent/
 
 # Security
 *.env

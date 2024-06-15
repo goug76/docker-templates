@@ -144,6 +144,58 @@ sections:
         icon: icons/truenas.png
         url: https://truenas.goug.local
         statusCheckAllowInsecure: true
+  - name: Media
+    icon: far fa-film
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 4
+      collapsed: false
+      hideForGuests: false
+    items:
+      - title: Plex
+        description: Plex Media Player
+        icon: icons/plex.png
+        url: https://plex.goug.local
+        target: newtab
+        statusCheck: true
+        statusCheckUrl: https://192.168.1.23:32400/web/
+        statusCheckAllowInsecure: true
+      - title: Overseerr
+        description: Movie and TV Show Requester
+        icon: icons/overseerr.png
+        url: https://overseerr.goug.local
+        target: newtab
+        statusCheck: true
+        statusCheckAllowInsecure: true
+      - title: Deluge
+        description: Torrent Downloader
+        icon: icons/deluge.png
+        url: https://deluge.goug.local
+        target: newtab
+        statusCheck: true
+        statusCheckAllowInsecure: true
+      - title: Prowlarr
+        description: Indexer Manager
+        icon: icons/prowlarr.png
+        url: https://prowlarr.goug.local
+        target: newtab
+        statusCheck: true
+        statusCheckAllowInsecure: true
+      - title: Radarr
+        description: Movie Library Manager
+        icon: icons/radarr.png
+        url: https://radarr.goug.local
+        target: newtab
+        statusCheck: true
+        statusCheckAllowInsecure: true
+      - title: Sonarr
+        description: TV Show Library Manager
+        icon: icons/sonarr.png
+        url: https://sonarr.goug.local
+        target: newtab
+        statusCheck: true
+        statusCheckAllowInsecure: true
   - name: Services
     icon: far fa-cloud
     displayData:

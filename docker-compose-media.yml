@@ -28,6 +28,7 @@ include:
 
   # Torrent Downloader
   - compose/media/deluge.yml
+  - compose/media/qbittorrent.yml
 
   # ARR Stack
   - compose/media/prowlarr.yml
