@@ -169,9 +169,16 @@ sections:
         statusCheck: true
         statusCheckAllowInsecure: true
       - title: Deluge
-        description: Torrent Downloader
+        description: Torrent Downloader TV Shows
         icon: icons/deluge.png
         url: https://deluge.goug.local
+        statusCheck: true
+        statusCheckAllowInsecure: true
+        target: newtab
+      - title: qBittorrent
+        description: Torrent Downloader Movies
+        icon: icons/qbittorrent.png
+        url: https://qbittorrent.goug.local
         target: newtab
         statusCheck: true
         statusCheckAllowInsecure: true
