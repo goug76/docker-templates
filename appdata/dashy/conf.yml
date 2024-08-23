@@ -276,21 +276,19 @@ sections:
         url: https://home-he.goug.local/
         target: newtab
         statusCheck: true
-        statusCheckUrl: https://192.168.1.33/
+        statusCheckUrl: https://192.168.1.31/
         statusCheckAllowInsecure: true
-        id: 0_944_home
       - title: Garage
         icon: icons/hubitat.png
-        url: https://192.168.1.31
-        id: 1_944_garage
+        url: https://garage-he.goug.local/
         statusCheck: true
+        statusCheckUrl: https://192.168.1.33/
         statusCheckAllowInsecure: true
       - title: Dev
         icon: icons/hubitat.png
         url: https://192.168.1.32
         statusCheck: true
         statusCheckAllowInsecure: true
-        id: 2_944_dev
       - title: Home
         icon: icons/home-assistant.png
         url: http://ha.goug.local:8123/
