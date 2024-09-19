@@ -2,7 +2,7 @@ services:
   # Portainer - WebUI for Containers
   portainer_agent:
     container_name: portainer_agent
-    image: portainer/agent:2.20.2
+    image: portainer/agent:latest
     security_opt:
       - no-new-privileges:true
     restart: unless-stopped
