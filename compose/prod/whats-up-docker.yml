@@ -1,0 +1,9 @@
+services:
+  whatsupdocker:
+    container_name: wud
+    image: fmartinou/whats-up-docker
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 3000:3000
