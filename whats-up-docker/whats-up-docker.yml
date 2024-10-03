@@ -1,0 +1,18 @@
+services:
+  whatsupdocker:
+    container_name: wud
+    image: fmartinou/whats-up-docker
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    environment:
+      TZ: $TZ
+      WUD_LOG_LEVEL: info # error info debug trace
+      WUD_AUTH_BASIC_JOHN_USER: ${USER}
+      WUD_AUTH_BASIC_JOHN_HASH: ${WUD_AUTH_BASIC_JOHN_HASH}
+      WUD_AUTH_OIDC_AUTHENTIK_CLIENTID: ${WUD_AUTH_OIDC_AUTHENTIK_CLIENTID}
+      WUD_AUTH_OIDC_AUTHENTIK_CLIENTSECRET: ${WUD_AUTH_OIDC_AUTHENTIK_CLIENTSECRET}
+      WUD_AUTH_OIDC_AUTHENTIK_DISCOVERY: ${WUD_AUTH_OIDC_AUTHENTIK_DISCOVERY}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - $DOCKERDIR/wud:/store

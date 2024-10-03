@@ -1,0 +1,21 @@
+services:
+  adguardhome: 
+    container_name: adguardhome
+    image: adguard/adguardhome
+    restart: unless-stopped
+    ports:
+      - 53:53/tcp # DNS
+      - 53:53/udp
+      - 784:784/udp # DNS over QUIC
+      - 853:853/tcp # DNS over TLS
+      - 3000:3000/tcp # initial installation
+      - 82:80/tcp # Dashboard
+      - 4443:443/tcp # DNS over HTTPs
+    environment:
+      - TZ=$TZ
+    volumes:
+      - $DOCKERDIR/adguardhome/work:/opt/adguardhome/work
+      - $DOCKERDIR/adguardhome/conf:/opt/adguardhome/conf
+    networks:
+      networking:
+        ipv4_address: 172.20.0.54

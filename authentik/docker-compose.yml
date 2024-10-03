@@ -1,0 +1,64 @@
+# Requires PostgresSQL and Redis servers
+services:
+  server:
+    container_name: authentik-server
+    image: ghcr.io/goauthentik/server
+    restart: unless-stopped
+    command: server
+    environment:
+      AUTHENTIK_REDIS__HOST: redis
+      AUTHENTIK_POSTGRESQL__HOST: postgres
+      AUTHENTIK_POSTGRESQL__USER: ${USER}
+      AUTHENTIK_POSTGRESQL__NAME: authentik
+      AUTHENTIK_POSTGRESQL__PASSWORD: ${POSTGRES_PASSWORD}
+      AUTHENTIK_ERROR_REPORTING__ENABLED: true
+      AUTHENTIK_SECRET_KEY: ${AUTHENTIK_SECRET_KEY}
+      AUTHENTIK_EMAIL__HOST: ${AUTHENTIK_EMAIL__HOST}
+      AUTHENTIK_EMAIL__PORT: ${AUTHENTIK_EMAIL__PORT}
+      AUTHENTIK_EMAIL__USERNAME: ${AUTHENTIK_EMAIL__USERNAME}
+      AUTHENTIK_EMAIL__PASSWORD: ${AUTHENTIK_EMAIL__PASSWORD}
+      AUTHENTIK_EMAIL__USE_TLS: ${AUTHENTIK_EMAIL__USE_TLS}
+      AUTHENTIK_EMAIL__USE_SSL: ${AUTHENTIK_EMAIL__USE_SSL}
+      AUTHENTIK_EMAIL__TIMEOUT: ${AUTHENTIK_EMAIL__TIMEOUT}
+      AUTHENTIK_EMAIL__FROM: ${AUTHENTIK_EMAIL__FROM}
+    volumes:
+      - $DOCKERDIR/authentik/media:/media
+      - $DOCKERDIR/authentik/custom-templates:/templates
+    ports:
+      - "9000:9000"
+      - "8443:9443"
+    depends_on:
+      - redis
+    networks:
+      - database-network
+  worker:
+    container_name: authentik-worker
+    image: ghcr.io/goauthentik/server
+    restart: unless-stopped
+    command: worker
+    environment:
+      AUTHENTIK_REDIS__HOST: redis
+      AUTHENTIK_POSTGRESQL__HOST: postgres
+      AUTHENTIK_POSTGRESQL__USER: ${USER}
+      AUTHENTIK_POSTGRESQL__NAME: authentik
+      AUTHENTIK_POSTGRESQL__PASSWORD: ${POSTGRES_PASSWORD}
+      AUTHENTIK_ERROR_REPORTING__ENABLED: true
+      AUTHENTIK_SECRET_KEY: ${AUTHENTIK_SECRET_KEY}
+      AUTHENTIK_EMAIL__HOST: ${AUTHENTIK_EMAIL__HOST}
+      AUTHENTIK_EMAIL__PORT: ${AUTHENTIK_EMAIL__PORT}
+      AUTHENTIK_EMAIL__USERNAME: ${AUTHENTIK_EMAIL__USERNAME}
+      AUTHENTIK_EMAIL__PASSWORD: ${AUTHENTIK_EMAIL__PASSWORD}
+      AUTHENTIK_EMAIL__USE_TLS: ${AUTHENTIK_EMAIL__USE_TLS}
+      AUTHENTIK_EMAIL__USE_SSL: ${AUTHENTIK_EMAIL__USE_SSL}
+      AUTHENTIK_EMAIL__TIMEOUT: ${AUTHENTIK_EMAIL__TIMEOUT}
+      AUTHENTIK_EMAIL__FROM: ${AUTHENTIK_EMAIL__FROM}
+    user: root
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - $DOCKERDIR/authentik/media:/media
+      - $DOCKERDIR/authentik/certs:/certs
+      - $DOCKERDIR/authentik/custom-templates:/templates
+    depends_on:
+      - redis
+    networks:
+      - database-network

@@ -1,0 +1,25 @@
+services:
+  wg-easy:
+    container_name: wg-easy
+    image: ghcr.io/wg-easy/wg-easy:latest
+    restart: unless-stopped
+    ports:
+      - "51820:51820/udp"
+      - "51821:51821/tcp"
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    sysctls:
+      - net.ipv4.ip_forward=1
+      - net.ipv4.conf.all.src_valid_mark=1
+    environment:
+      - LANG=en # Language settings.
+      - WG_HOST=${WG_HOST} #${WG_HOST} # The public hostname of your VPN server.
+      # - PASSWORD=${WG_PWD} # When set, requires a password when logging in to the Web UI.
+      - WG_DEFAULT_DNS= # DNS server clients will use, Adguard's Docker network IP address
+      - UI_TRAFFIC_STATS=true # Enable detailed RX / TX client stats in Web UI
+      - UI_CHART_TYPE=1 # UI_CHART_TYPE=0 # Charts disabled, UI_CHART_TYPE=1 # Line chart, UI_CHART_TYPE=2 # Area chart, UI_CHART_TYPE=3 # Bar chart      
+    volumes:
+      - $DOCKERDIR/wireguard:/etc/wireguard
+    networks:
+      - networking
