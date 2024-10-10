@@ -1,3 +1,4 @@
+---
 services:
   step-ca:
     container_name: step-ca

@@ -1,3 +1,4 @@
+---
 # Requires PostgresSQL and Redis servers
 services:
   server:

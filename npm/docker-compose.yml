@@ -1,3 +1,4 @@
+---
 services:
   npm:
     container_name: npm

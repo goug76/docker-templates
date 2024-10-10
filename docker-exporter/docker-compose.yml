@@ -1,0 +1,14 @@
+---
+services:
+  docker-exporter:
+    container_name: docker-exporter
+    image: karugaru/docker_state_exporter
+    restart: unless-stopped
+    ports:
+      - 8085:8080
+    volumes:
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+    networks: 
+      - monitoring

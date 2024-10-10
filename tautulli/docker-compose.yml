@@ -1,0 +1,17 @@
+---
+services:
+  tautulli:
+    container_name: tautulli
+    image: lscr.io/linuxserver/tautulli:latest
+    read_only: true
+    restart: unless-stopped
+    ports:
+      - 8181:8181
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - $DOCKERDIR/tautulli/config:/config
+    networks:
+      - media

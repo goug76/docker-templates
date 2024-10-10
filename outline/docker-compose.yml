@@ -1,9 +1,5 @@
+---
 # Requires a PostgresSQL and Redis servers
-networks:
-  database-network:
-    name: database-network
-    driver: bridge
-
 services:
   outline:
     container_name: outline

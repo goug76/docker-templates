@@ -1,0 +1,23 @@
+---
+services:
+  prometheus:
+    container_name: prometheus
+    image: prom/prometheus
+    user: "0"
+    restart: unless-stopped
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus' 
+      - '--web.console.libraries=/etc/prometheus/console_libraries' 
+      - '--web.console.templates=/etc/prometheus/consoles' 
+      - '--web.enable-lifecycle'
+      - '--web.enable-admin-api'
+    ports:
+      - 9091:9090
+    environment:
+      - TZ=$TZ
+    volumes:
+      - $DOCKERDIR/prometheus:/etc/prometheus
+      - $DOCKERDIR/prometheus:/prometheus
+    networks:
+      - monitoring

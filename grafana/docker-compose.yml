@@ -1,0 +1,29 @@
+---
+services:
+  grafana:
+    container_name: grafana
+    image: grafana/grafana
+    user: "0"
+    restart: unless-stopped
+    ports:
+     - '3030:3000'
+    environment:
+      GF_AUTH_GENERIC_OAUTH_ENABLED: "true"
+      GF_AUTH_GENERIC_OAUTH_NAME: "authentik"
+      GF_AUTH_GENERIC_OAUTH_CLIENT_ID: ${GF_AUTH_GENERIC_OAUTH_CLIENT_ID}
+      GF_AUTH_GENERIC_OAUTH_CLIENT_SECRET: ${GF_AUTH_GENERIC_OAUTH_CLIENT_SECRET}
+      GF_AUTH_GENERIC_OAUTH_SCOPES: "openid profile email"
+      GF_AUTH_GENERIC_OAUTH_AUTH_URL: ${GF_AUTH_GENERIC_OAUTH_AUTH_URL}
+      GF_AUTH_GENERIC_OAUTH_TOKEN_URL: ${GF_AUTH_GENERIC_OAUTH_TOKEN_URL}
+      GF_AUTH_GENERIC_OAUTH_API_URL: ${GF_AUTH_GENERIC_OAUTH_API_URL}
+      GF_AUTH_SIGNOUT_REDIRECT_URL: ${GF_AUTH_SIGNOUT_REDIRECT_URL}
+      GF_SERVER_ROOT_URL: ${GF_SERVER_ROOT_URL}
+      # Optionally enable auto-login (bypasses Grafana login screen)
+      GF_AUTH_OAUTH_AUTO_LOGIN: "false"
+      TZ: $TZ
+    volumes:
+      - $DOCKERDIR/grafana/datasources:/etc/grafana/provisioning/datasources
+      - $DOCKERDIR/grafana:/var/lib/grafana
+      - $DOCKERDIR/grafana/config/custom.ini:/etc/grafana/grafana.ini
+    networks:
+      - monitoring

@@ -1,0 +1,17 @@
+---
+services:
+  uptime-kuma:
+    container_name: uptime-kuma
+    image: louislam/uptime-kuma:latest
+    restart: always
+    environment:
+      - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
+      - TZ=${TZ}
+    ports:
+      - 3002:3001
+    volumes:
+      - $DOCKERDIR/uptime-kuma:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt
+    networks:
+      - monitoring
