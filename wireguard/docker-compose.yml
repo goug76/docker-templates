@@ -16,7 +16,7 @@ services:
     environment:
       - LANG=en # Language settings.
       - WG_HOST=${WG_HOST} #${WG_HOST} # The public hostname of your VPN server.
-      # - PASSWORD=${WG_PWD} # When set, requires a password when logging in to the Web UI.
+      - PASSWORD_HASH=${WG_PWD} # When set, requires a password when logging in to the Web UI.
       - WG_DEFAULT_DNS= # DNS server clients will use, Adguard's Docker network IP address
       - UI_TRAFFIC_STATS=true # Enable detailed RX / TX client stats in Web UI
       - UI_CHART_TYPE=1 # UI_CHART_TYPE=0 # Charts disabled, UI_CHART_TYPE=1 # Line chart, UI_CHART_TYPE=2 # Area chart, UI_CHART_TYPE=3 # Bar chart      

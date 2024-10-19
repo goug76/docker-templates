@@ -1,0 +1,24 @@
+---
+services:
+  transmission:
+    container_name: transmission
+    image: lscr.io/linuxserver/transmission:latest
+    restart: unless-stopped
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      # - TRANSMISSION_WEB_HOME= #optional
+      - USER= ${USER}
+      - PASS= ${PASS}
+      # - WHITELIST= #optional
+      # - PEERPORT= #optional
+      # - HOST_WHITELIST= #optional
+    volumes:
+      - $DOCKERDIR/transmission/data:/config
+      - /mnt/downloads:/downloads
+      - $DOCKERDIR/transmission/watch:/watch
