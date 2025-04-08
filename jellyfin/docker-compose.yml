@@ -1,0 +1,15 @@
+---
+services:
+  jellyfin:
+    container_name: jellyfin
+    image: lscr.io/linuxserver/jellyfin:latest
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - JELLYFIN_PublishedServerUrl=http://192.168.1.6 #optional
+    volumes:
+      - $DOCKERDIR/jellyfin:/config
+      - /mnt/multimedia:/multimedia
