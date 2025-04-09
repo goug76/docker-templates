@@ -100,6 +100,7 @@ services:
 | `TZ` | Timezone | `America/New_York` |
 | `VIKUNJA_SERVICE_PUBLICURL` | Public base URL for the service | `https://tasks.domain.com` |
 | `VIKUNJA_SERVICE_JWTSECRET` | Secret key for token generation | `generate_a_secure_string` |
+| `VIKUNJA_SERVICE_ENABLEREGISTRATION` | Enable  registration | `0` (false) or `1` (true) |
 
 > 🔐 Use a long, random value for `VIKUNJA_SERVICE_JWTSECRET`. You can generate one with `openssl rand -hex 32`.
 

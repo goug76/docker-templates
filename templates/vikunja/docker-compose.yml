@@ -37,6 +37,7 @@ services:
       VIKUNJA_DATABASE_USER: ${USER}
       VIKUNJA_DATABASE_DATABASE: vikunja
       VIKUNJA_SERVICE_JWTSECRET: ${VIKUNJA_SERVICE_JWTSECRET}
+      VIKUNJA_SERVICE_ENABLEREGISTRATION: 1
       TZ: '${TZ}'
     volumes:
       - $DOCKERDIR/vikunja/files:/app/vikunja/files
