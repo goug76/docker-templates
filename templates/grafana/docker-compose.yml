@@ -3,11 +3,13 @@ services:
   grafana:
     container_name: grafana
     image: grafana/grafana
-    user: "0"
+    user: "1000"
     restart: unless-stopped
     ports:
      - '3030:3000'
     environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: changeme
       GF_AUTH_GENERIC_OAUTH_ENABLED: "true"
       GF_AUTH_GENERIC_OAUTH_NAME: "authentik"
       GF_AUTH_GENERIC_OAUTH_CLIENT_ID: ${GF_AUTH_GENERIC_OAUTH_CLIENT_ID}
@@ -16,10 +18,11 @@ services:
       GF_AUTH_GENERIC_OAUTH_AUTH_URL: ${GF_AUTH_GENERIC_OAUTH_AUTH_URL}
       GF_AUTH_GENERIC_OAUTH_TOKEN_URL: ${GF_AUTH_GENERIC_OAUTH_TOKEN_URL}
       GF_AUTH_GENERIC_OAUTH_API_URL: ${GF_AUTH_GENERIC_OAUTH_API_URL}
-      GF_AUTH_SIGNOUT_REDIRECT_URL: ${GF_AUTH_SIGNOUT_REDIRECT_URL}
+      GF_AUTH_GENERIC_OAUTH_ROLE_ATTRIBUTE_PATH: "contains(groups, 'Grafana Admins') && 'Admin' || contains(groups, 'Grafana Editors') && 'Editor' || 'Viewer'"
       GF_SERVER_ROOT_URL: ${GF_SERVER_ROOT_URL}
       # Optionally enable auto-login (bypasses Grafana login screen)
       GF_AUTH_OAUTH_AUTO_LOGIN: "false"
+      GF_SECURITY_ALLOW_EMBEDDING: "true"
       TZ: $TZ
     volumes:
       - $DOCKERDIR/grafana/datasources:/etc/grafana/provisioning/datasources

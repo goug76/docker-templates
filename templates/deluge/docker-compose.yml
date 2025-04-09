@@ -16,6 +16,6 @@ services:
       - DELUGE_LOGLEVEL=error #optional
     volumes:
       - $DOCKERDIR/deluge/config:/config
-      - /mnt/downloads:/downloads
+      - $DOWNLOADDIR:/downloads
     networks:
       - media

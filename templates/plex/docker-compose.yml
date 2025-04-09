@@ -12,4 +12,4 @@ services:
       - VERSION=docker
     volumes:
       - $DOCKERDIR/plex:/config
-      - /mnt/multimedia:/multimedia
+      - $MEDIADIR:/multimedia

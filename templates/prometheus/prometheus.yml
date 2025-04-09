@@ -1,0 +1,41 @@
+# my global config
+# Reload Prometheus with: curl -X POST http://<host>:9091/-/reload
+
+global:
+  scrape_interval: 15s # Set how often metrics are scraped (default: 60s)
+
+scrape_configs:
+  # Self-scrape (Prometheus monitors itself)
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  # Node Exporter (for system metrics)
+  # - job_name: "node_exporter"
+  #   static_configs:
+  #     - targets: ["node-exporter:9100"]
+
+  # cAdvisor (for container metrics)
+  # - job_name: "cadvisor"
+  #   static_configs:
+  #     - targets: ["cadvisor:8080"]
+
+  # Blackbox Exporter (ping/http/dns/etc.)
+  # - job_name: "blackbox"
+  #   metrics_path: /probe
+  #   params:
+  #     module: [http_2xx]
+  #   static_configs:
+  #     - targets:
+  #         - https://example.com
+  #   relabel_configs:
+  #     - source_labels: [__address__]
+  #       target_label: __param_target
+  #     - source_labels: [__param_target]
+  #       target_label: instance
+  #     - target_label: __address__
+  #       replacement: blackbox-exporter:9115
+
+# TODO:
+# - Add alerting rules under rule_files:
+# - Enable remote_write if integrating with Grafana Cloud or Thanos

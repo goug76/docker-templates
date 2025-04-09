@@ -12,7 +12,7 @@ services:
       - TZ=${TZ}
     volumes:
       - $DOCKERDIR/sonarr/data:/config
-      - /mnt/multimedia:/multimedia
-      - /mnt/downloads:/downloads
+      - $MEDIADIR:/multimedia
+      - $DOWNLOADDIR:/downloads
     networks:
       - media

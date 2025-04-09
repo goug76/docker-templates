@@ -15,7 +15,7 @@ services:
     environment:
       POSTGRES_USER: '${USER}'
       POSTGRES_PASSWORD: '${POSTGRES_PASSWORD}'
-      POSTGRES_DB: vaultwarden
+      POSTGRES_DB: vikunja
       TZ: '${TZ}'
     networks:
       - database
@@ -23,25 +23,26 @@ services:
       test: ["CMD-SHELL", "pg_isready -h localhost -U $$POSTGRES_USER"]
       interval: 2s
 
-  vaultwarden:
-    container_name: vaultwarden
-    image: vaultwarden/server:latest
-    security_opt:
-      - no-new-privileges:true
+  vikunja:
+    container_name: vikunja
+    image: vikunja/vikunja
     restart: unless-stopped
     ports:
-      - 83:80
+      - 3456:3456
     environment:
-      - PUSH_ENABLED=true
-      - PUSH_INSTALLATION_ID=${PUSH_INSTALLATION_ID}
-      - PUSH_INSTALLATION_KEY=${PUSH_INSTALLATION_KEY}
-      - DATABASE_URL=postgresql://${USER}:${POSTGRES_PASSWORD}@postgres/vaultwarden
-      - ADMIN_TOKEN=${ADMIN_TOKEN}
-      - TZ=$TZ
+      VIKUNJA_SERVICE_PUBLICURL: ${VIKUNJA_SERVICE_PUBLICURL}
+      VIKUNJA_DATABASE_HOST: postgres
+      VIKUNJA_DATABASE_PASSWORD: ${POSTGRES_PASSWORD}
+      VIKUNJA_DATABASE_TYPE: postgres 
+      VIKUNJA_DATABASE_USER: ${USER}
+      VIKUNJA_DATABASE_DATABASE: vikunja
+      VIKUNJA_SERVICE_JWTSECRET: ${VIKUNJA_SERVICE_JWTSECRET}
+      TZ: '${TZ}'
     volumes:
-      - $DOCKERDIR/vaultwarden/:/data/
+      - $DOCKERDIR/vikunja/files:/app/vikunja/files
+      - $DOCKERDIR/vikunja/config.yml:/etc/vikunja/config.yml
     networks:
-      database:
+      - database
     depends_on:
       postgres:
         condition: service_healthy

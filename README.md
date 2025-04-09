@@ -29,7 +29,7 @@ Here's a quick overview of what you’ll find:
 | Portainer     | Web UI to manage Docker                        |
 | ...and more   | Explore each folder for more templates         |
 
-Each folder contains a `docker-compose.yml` and sometimes sample config files or README notes.
+Each folder contains a `docker-compose.yml`, an `.env`, `README.md` and sometimes sample config files.
 
 ---
 

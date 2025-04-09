@@ -1,5 +1,22 @@
----
-services:
+networks:
+  networking:
+    name: networking
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+
+services:  
+  unbound:
+    container_name: unbound
+    image: klutchell/unbound
+    restart: unless-stopped
+    environment:
+      - TZ=$TZ
+    networks:
+      networking:
+        ipv4_address: 172.20.0.53 # fixed IP address
+
   adguardhome: 
     container_name: adguardhome
     image: adguard/adguardhome
@@ -20,3 +37,5 @@ services:
     networks:
       networking:
         ipv4_address: 172.20.0.54
+    depends_on:
+      - unbound

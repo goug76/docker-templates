@@ -1,0 +1,42 @@
+# Page meta info, like heading, footer text and nav links
+pageInfo:
+  title: Dashy
+  description: Welcome to your new dashboard!
+  navLinks:
+    - title: GitHub
+      path: https://github.com/Lissy93/dashy
+    - title: Documentation
+      path: https://dashy.to/docs
+
+appConfig:
+  theme: colorful
+
+sections:
+  - name: Getting Started
+    icon: fas fa-rocket
+    items:
+      - title: Dashy Live
+        description: Development & project links
+        icon: https://i.ibb.co/qWWpD0v/astro-dab-128.png
+        url: https://live.dashy.to/
+        target: newtab
+      - title: GitHub
+        description: Source Code, Issues and PRs
+        url: https://github.com/lissy93/dashy
+        icon: favicon
+      - title: Docs
+        description: Usage Documentation
+        url: https://dashy.to/docs
+        icon: far fa-book
+      - title: Showcase
+        description: Community dashboards
+        url: https://github.com/Lissy93/dashy/blob/master/docs/showcase.md
+        icon: far fa-grin-hearts
+      - title: Config Guide
+        description: Full list of configuration options
+        url: https://github.com/Lissy93/dashy/blob/master/docs/configuring.md
+        icon: fas fa-wrench
+      - title: Support
+        description: Help, bug reports, contact
+        url: https://github.com/Lissy93/dashy/blob/master/.github/SUPPORT.md
+        icon: far fa-hands-helping

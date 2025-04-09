@@ -1,6 +1,29 @@
 ---
-# Requires a PostgresSQL server
+
 services:
+  postgres:
+    container_name: postgres
+    image: postgres:16
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    ports:
+      - 5432:5432
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    volumes: 
+      - $DOCKERDIR/postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: '${USER}'
+      POSTGRES_PASSWORD: '${POSTGRES_PASSWORD}'
+      POSTGRES_DB: semaphore
+      TZ: '${TZ}'
+    networks:
+      - database
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h localhost -U $$POSTGRES_USER"]
+      interval: 2s
+
   semaphore:
     container_name: semaphore
     image: semaphoreui/semaphore:latest
@@ -21,9 +44,11 @@ services:
       SEMAPHORE_ADMIN: ${SEMAPHORE_USER}
       SEMAPHORE_ACCESS_KEY_ENCRYPTION: '${SEMAPHORE_ACCESS_KEY_ENCRYPTION}'
       ANSIBLE_HOST_KEY_CHECKING: false
-      ANSIBLE_PYTHON_INTERPRETER: auto_silent
       TZ: ${TZ}
     volumes: 
       - $DOCKERDIR/semaphore:/etc/semaphore
+    depends_on:
+      postgres:
+        condition: service_healthy
     networks:
       - database

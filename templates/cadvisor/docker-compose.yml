@@ -3,7 +3,6 @@ services:
   cadvisor: 
     container_name: cadvisor 
     image: gcr.io/cadvisor/cadvisor:latest 
-    user: "0"
     restart: unless-stopped 
     ports: 
       - 8080:8080 
@@ -14,4 +13,3 @@ services:
       - /var/lib/docker/:/var/lib/docker:ro
     networks: 
       - monitoring
-      - database

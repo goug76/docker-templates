@@ -1,0 +1,6 @@
+default:
+    user: <Proxmox User>
+    token_name: "<Token ID from API Token>"
+    token_value: "<Token from API Token>"
+    # Optional: set to false to skip SSL/TLS verification
+    verify_ssl: false
