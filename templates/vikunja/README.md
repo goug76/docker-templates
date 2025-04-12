@@ -100,13 +100,44 @@ services:
 | `TZ` | Timezone | `America/New_York` |
 | `VIKUNJA_SERVICE_PUBLICURL` | Public base URL for the service | `https://tasks.domain.com` |
 | `VIKUNJA_SERVICE_JWTSECRET` | Secret key for token generation | `generate_a_secure_string` |
-| `VIKUNJA_SERVICE_ENABLEREGISTRATION` | Enable  registration | `0` (false) or `1` (true) |
 
 > 🔐 Use a long, random value for `VIKUNJA_SERVICE_JWTSECRET`. You can generate one with `openssl rand -hex 32`.
 
 ---
 
 ## 🧪 Sample Configuration
+
+config.yml
+
+```yaml
+auth:
+  # Local authentication will let users log in and register (if enabled) through the db.
+  # This is the default auth mechanism and does not require any additional configuration.
+  local:
+    # Enable or disable local authentication
+    enabled: true
+  # OpenID configuration will allow users to authenticate through a third-party OpenID Connect compatible provider.<br/>
+  # The provider needs to support the `openid`, `profile` and `email` scopes.<br/>
+  # **Note:** Some openid providers (like gitlab) only make the email of the user available through openid claims if they have set it to be publicly visible.
+  # If the email is not public in those cases, authenticating will fail.
+  # **Note 2:** The frontend expects to be redirected after authentication by the third party
+  # to <frontend-url>/auth/openid/<auth key>. Please make sure to configure the redirect url with your third party
+  # auth service accordingly if you're using the default Vikunja frontend.
+  # Take a look at the [default config file](https://github.com/go-vikunja/api/blob/main/config.yml.sample) for more information about how to configure openid authentication.
+  openid:
+    # Enable or disable OpenID Connect authentication
+    enabled: true
+    # A list of enabled providers
+    providers:
+      # The name of the provider as it will appear in the frontend.
+      - name: "Authentik"
+        # The auth url to send users to if they want to authenticate using OpenID Connect.
+        authurl: https://authentik.domain.com/application/o/vikunja/
+        # The client ID used to authenticate Vikunja at the OpenID Connect provider.
+        clientid: <Authentik Vikunja Client ID>
+        # The client secret used to authenticate Vikunja at the OpenID Connect provider.
+        clientsecret: <Authentik Vikunja Client Secret>
+```
 
 * `/app/vikunja/files` stores uploaded attachments
 * `/etc/vikunja/config.yml` can override all environment variables with a persistent config
@@ -139,6 +170,7 @@ services:
 * [Vikunja GitHub](https://github.com/go-vikunja/vikunja)
 * [Config Reference](https://vikunja.io/docs/config-options/)
 * [Authentik Configuration Guide](https://docs.goauthentik.io/integrations/services/vikunja/)
+* [Complete Config File](https://dl.vikunja.io/vikunja/unstable/config.yml.sample)
 
 ---
 
